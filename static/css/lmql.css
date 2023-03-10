@@ -1,6 +1,21 @@
-h1>img {
-    width: 30pt;
-    height: 30pt;
+.title.is-1 {
+    font-size: 28pt;
+}
+
+@media only screen and (max-width: 420pt) {
+    .title.is-1 {
+        font-size: 20pt;
+    }
+
+    .title.is-1>img {
+        height: 18pt !important;
+    }
+}
+
+.title.is-1>img {
+    /* width: 30pt; */
+    width: auto;
+    height: 25pt;
     margin-right: 5pt;
     position: relative;
     top: 1pt;
@@ -515,4 +530,29 @@ h1 {
 
 figure img {
     border-radius: 4pt;
+}
+
+.screenshot-mode .side-by-side {
+    margin-top: 100pt;
+    margin-bottom: 100pt;
+}
+
+.screenshot-mode .learn-more {
+    display: none;
+}
+
+.screenshot-mode anchor {
+    border-bottom: 0pt dotted #dfdfdfa2;
+}
+
+.screenshot-mode anchor .dot {
+    display: none;
+}
+
+.screenshot-mode anchor.hover .dot {
+    display: flex;
+}
+
+.screenshot-mode .side-by-side h3>a {
+    display: none;
 }
