@@ -62,13 +62,35 @@ window.addEventListener('load', function() {
     this.parentElement.childNodes.forEach(e => !e.classList || e == this || e.classList.remove('active'))
     this.classList.add('active')
     let selected = this.getAttribute('value')
-    findParent(this, 'example-selector').querySelectorAll('.side-by-side').forEach(e => e.style.display = 'none');
-    findParent(this, 'example-selector').querySelectorAll('#' + selected).forEach(e => e.style.display = 'flex');
+    findParent(this, 'example-selector').querySelectorAll('.side-by-side').forEach(e => {
+      e.style.display = 'none';
+      e.classList.remove('selected')
+    });
+    findParent(this, 'example-selector').querySelectorAll('#' + selected).forEach(e => {
+      e.style.display = 'flex';
+      e.classList.add('selected');
+    });
 
     // set anchor
     let id = selected.substr("precomputed-".length)
     id = id.substr(0, id.length-"-json".length)
-    window.location.hash = id
+    if (id == "joke") {
+      // remove hash
+      if (window.location.hash != "") {
+        history.pushState('', document.title, window.location.pathname);
+      }
+    } else {
+      window.location.hash = id
+    }
+    let that = this;
+
+    if (!window.matchMedia("(max-width: 1070pt)").matches) {
+      window.setTimeout(function() {
+        // find first <anchor> in example element
+        let anchor = document.querySelector('#' + selected).querySelectorAll('anchor')[0]
+        hoverAnchor.call(anchor, null)
+      }, 100)
+    }
   }
   
   document.querySelectorAll("span.option").forEach(e => e.addEventListener('click', switchToExample))
@@ -83,6 +105,8 @@ window.addEventListener('load', function() {
     } else if (anchor.substring(1) == "screenshot") {
       setScreenshotMode()
     }
+  } else {
+    document.querySelectorAll("span.option")[0].click()
   }
 })
 
@@ -152,10 +176,13 @@ window.addEventListener('load', function() {
   })
 })
 
-// check for local dev
-window.addEventListener('load', function() {
-  // check localhost
-  if (window.location.hostname == 'localhost' || window.location.hostname == '127.0.0.1') {
-    document.querySelector("#playground-link").href = "http://localhost:3000"
+function nextAnchor(el) {
+  // get anchor-n from class list
+  while (el.tagName != "ANCHOR" && el) {
+    el = el.parentElement
   }
-})
+  let anchorClass = Array.from(el.classList).filter(cn => cn.startsWith("anchor-"))[0]
+  let n = parseInt(anchorClass.substr("anchor-".length))
+  el = findParent(el, 'side-by-side').querySelector('.anchor-' + (n+1))
+  hoverAnchor.call(el, null)
+}
