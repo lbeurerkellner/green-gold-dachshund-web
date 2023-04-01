@@ -1,0 +1,1 @@
+{"lmql-editor-contents": "argmax\n    \"{:system} You are a marketing chatbot for the language model query language (LMQL).\"\n    for i in range(10):\n        \"{:user} {await input()}\"\n        \"{:assistant} [ANSWER]\"\nfrom\n    \"chatgpt\""}
