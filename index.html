@@ -10,21 +10,21 @@
   <!-- Primary Meta Tags -->
   <title>LMQL: Programming Large Language Models</title>
   <meta name="title" content="LMQL: Programming Large Language Models">
-  <meta name="description" content="A query language for programming (large) language models.">
+  <meta name="description" content="LMQL is a query language for large language models (LLMs). It facilitates LLM interaction by combining the benefits of natural language prompting with the expressiveness of Python.">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lmql.ai/">
   <meta property="og:title" content="LMQL: Programming Large Language Models">
-  <meta property="og:description" content="A query language for programming (large) language models.">
-  <meta property="og:image" content="https://lmql.ai/static/images/lmql-overview.png">
+  <meta property="og:description" content="LMQL is a query language for large language models (LLMs). It facilitates LLM interaction by combining the benefits of natural language prompting with the expressiveness of Python.">
+  <meta property="og:image" content="https://lmql.ai/static/images/lmql-social.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://lmql.ai/">
   <meta property="twitter:title" content="LMQL: Programming Large Language Models">
-  <meta property="twitter:description" content="A query language for programming (large) language models.">
-  <meta property="twitter:image" content="https://lmql.ai/static/images/lmql-overview.png"">
+  <meta property="twitter:description" content="LMQL is a query language for large language models (LLMs). It facilitates LLM interaction by combining the benefits of natural language prompting with the expressiveness of Python.">
+  <meta property="twitter:image" content="https://lmql.ai/static/images/lmql-social.png"">
   
   
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
@@ -45,15 +45,44 @@
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f7d2a6b1a0624c51ae4dab9a4239b77d"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
+  <div class="topnav">
+    <img src="./static/images/lmql-text.png" alt="LMQL logo" class="logo">
+    <a href="https://docs.lmql.ai">Docs</a>
+    <a href="https://github.com/eth-sri/lmql">
+      <i class="fa fa-github"></i>
+      GitHub</a>
+    <a href="javascript:void(0);" class="icon" onclick="openMenu()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
 
-  <section class="hero">
+  <section class="hero hero-big">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">
-            <img src="static/images/lmql.svg"/> LMQL: Programming Large <nobr>Language Models</nobr></h1>
-          <div class="is-size-5 publication-authors">
+      <div class="columns">
+        <div class="column column-big">
+          <span class="big">Supercharge your prompting 
+            <span class="block">
+            with
+            <ul class="inner">
+            <span class="placeholder"> AAAAAAAAAAA.</span>
+            <li> control flow.</li>
+            <li> constraints.</li>
+            <li> a debugger.</li>
+            <li> scripting.</li>
+            <li> decoders.</li>
+            <li> 🤗 Transformers.</li>
+            <li> templates.</li>
+            <li> code.</li>
+            <li> token masking.</li>
+            <li> retrieval.</li>
+            </ul>
+            </span>
+          </span><br/>
+          <span class="big-sub">
+          <img src="static/images/lmql.svg" style="height:15pt;"/> LMQL is a programming language for language model interaction:
+          </span>
+          <!-- <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://www.sri.inf.ethz.ch/people/luca">Luca Beurer-Kellner</a>,</span>
             <span class="author-block">
@@ -65,43 +94,8 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><a href="https://www.sri.inf.ethz.ch"><b>SRI</b>lab</a> @   ETH Zürich, Switzerland</span>
-          </div>
+          </div> -->
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/2212.06094"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fa-solid fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <!-- Live Demo. -->
-              <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-dark" href="playground" target="_blank" id="playground-link">
-                  <span class="icon">
-                    <i class="fa-solid fa-terminal"></i>
-                  </span>
-                  <span class="stack">
-                    <span>Live Demo</span> 
-                    </span>
-                  </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-dark" href="https://github.com/eth-sri/lmql">
-                  <span class="icon">
-                    <i class="fa-brands fa-github"></i>
-                  </span>
-                  <span class="stack">
-                    <span>Code</span> 
-                  </a>
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -112,7 +106,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="subtitle has-text-centered">
-        <i>LMQL</i> is a query language for programming (large) language models.
+        <!-- <i>LMQL</i> is a programming language for language model interaction. -->
       </h2>
       <div class="example-selector">
         <div class="example-badges">
@@ -123,7 +117,8 @@
 <span class="option " value="precomputed-calc-json">🧮 Calculator</span>
 <span class="option " value="precomputed-wiki-json">🌎 Wikipedia Search</span>
 <span class="option " value="precomputed-kv-json">📖 Key-Value Memory</span>
-<span class="option " value="precomputed-distribution-json">📊 Conditional Distributions</span>
+<span class="option " value="precomputed-distribution-json">📊 Distributions</span>
+<span class="option " value="precomputed-chat-json">🗣️ Chatbot</span>
         </div>
         <div class="select-bar">
           <!-- <div class="select examples"> -->
@@ -141,7 +136,8 @@
             </a>
         </h3>
         <pre>
-<span class="lmql-kw"><anchor>argmax<label><div class="multiline"><tt>argmax</tt> specifies the use of argmax decoding for this query, but LMQL also supports <tt>sample</tt> and <tt>beam</tt> search. Decoding parameters like <i>sampling temperature</i> can also be specified.</div><div class="bridge"></div></label><div class="dot"></div></anchor></span>
+<span class="lmql-kw"><anchor class="anchor-1">argmax<label><div class="multiline"><tt>argmax</tt> specifies the use of argmax decoding for this query, but LMQL also supports <tt>sample</tt> and <tt>beam</tt> search. Decoding parameters like <i>sampling temperature</i> can also be specified.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor></span>
    <span class="lmql-str">"""A list of good dad jokes. A indicates
     <span style="color: grey">➥</span> the punchline
    Q: How does a penguin build its house?
@@ -149,15 +145,19 @@
    Q: Which knight invented King Arthur's
     <span style="color: grey">➥</span> Round Table?
    A: Sir Cumference.
-   Q:<anchor><span class="lmql-var sync val1">[JOKE]</span><label><div class="multiline">Hole variables like <tt><span class="lmql-var sync val1">[JOKE]</span></tt> are completed by the language model as shown in the output. LMQL automatically detects the end of the resulting sequence, relying on the constraints provided in the <tt>where</tt> clause.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+   Q:<anchor class="anchor-2"><span class="lmql-var sync val1">[JOKE]</span><label><div class="multiline">Hole variables like <tt><span class="lmql-var sync val1">[JOKE]</span></tt> are completed by the language model as shown in the output. LMQL automatically detects the end of the resulting sequence, relying on the constraints provided in the <tt>where</tt> clause.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
    A:<span class="lmql-var sync val2">[PUNCHLINE]</span>"""</span>
 <span class="lmql-kw">from</span>
-   <span class="lmql-str"><anchor>"openai/text-davinci-003"<label><div class="multiline">The <tt>from</tt> clause specifies the identifier of a text generation model from the <a href="https://huggingface.co/models" target="_blank">🤗&nbsp;Transformers model repository</a> or an OpenAI model like <tt>text-davinci-003</tt>.</div><div class="bridge"></div></label><div class="dot"></div></anchor></span>
+   <span class="lmql-str"><anchor class="anchor-3">"openai/text-davinci-003"<label><div class="multiline">The <tt>from</tt> clause specifies the identifier of a text generation model from the <a href="https://huggingface.co/models" target="_blank">🤗&nbsp;Transformers model repository</a> or an OpenAI model like <tt>text-davinci-003</tt>.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor></span>
 <span class="lmql-kw">where</span>
    len(JOKE) &lt; 120 <span class="lmql-kw">and</span> 
-   <anchor>STOPS_AT<label><div class="multiline">As one of the supported built-in operations, <tt>STOPS_AT</tt> specifies a stopping phrase when decoding the provided variable.</div><div class="bridge"></div></label><div class="dot"></div></anchor>(JOKE, <span class="lmql-str">"?"</span>) <span class="lmql-kw">and</span> 
+   <anchor class="anchor-4">STOPS_AT<label><div class="multiline">As one of the supported built-in operations, <tt>STOPS_AT</tt> specifies a stopping phrase when decoding the provided variable.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>(JOKE, <span class="lmql-str">"?"</span>) <span class="lmql-kw">and</span> 
    STOPS_AT(PUNCHLINE, <span class="lmql-str">"\n"</span>) <span class="lmql-kw">and</span> 
-   <anchor>len(PUNCHLINE) &gt; 1<label><div class="multiline">LMQL supports high-level constraints, where the language runtime automatically derives token-level prediction masks and validates the produced sequence eagerly, i.e. as soon as the provided validation condition is definitively violated, decoding stops or is redirected to a different branch.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+   <anchor class="anchor-5">len(PUNCHLINE) &gt; 1<label><div class="multiline">LMQL supports high-level constraints, where the language runtime automatically derives token-level prediction masks and validates the produced sequence eagerly, i.e. as soon as the provided validation condition is definitively violated, decoding stops or is redirected to a different branch.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
         </pre>
     </div>
     <div class="output" >
@@ -191,12 +191,14 @@ A list of good dad jokes. A indicates the punchline<br/>Q: How does a penguin bu
    <span class="lmql-str">"A list of things not to forget when
     <span style="color: grey">➥</span> going to the sea (not travelling): \n"</span>
    <span class="lmql-str">"- Sunglasses \n"</span>
-   <anchor><span class="lmql-kw">for</span> i <span class="lmql-kw">in</span> range(4):<label><div class="multiline">LMQL supports regular Python control-flow as part of the prompt clause, allowing users to control the generation process programmatically.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+   <anchor class="anchor-1"><span class="lmql-kw">for</span> i <span class="lmql-kw">in</span> range(4):<label><div class="multiline">LMQL supports regular Python control-flow as part of the prompt clause, allowing users to control the generation process programmatically.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
       <span class="lmql-str">"- <span class="lmql-var sync val1">[THING]</span> \n"</span>
 <span class="lmql-kw">from</span>
    <span class="lmql-str">'openai/text-ada-001'</span>
 <span class="lmql-kw">where</span>
-   <anchor>THING <span class="lmql-kw">in</span> set<label><div class="multiline">LMQL constraints like <tt>VAR in [...]</tt> can be used to enforce that the language model can only generate a fixed set of values for a variable.</div><div class="bridge"></div></label><div class="dot"></div></anchor>([<span class="lmql-str">"Volleyball"</span>, <span class="lmql-str">"Sunscreen"</span>, <span class="lmql-str">"Bathing
+   <anchor class="anchor-2">THING <span class="lmql-kw">in</span> set<label><div class="multiline">LMQL constraints like <tt>VAR in [...]</tt> can be used to enforce that the language model can only generate a fixed set of values for a variable.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>([<span class="lmql-str">"Volleyball"</span>, <span class="lmql-str">"Sunscreen"</span>, <span class="lmql-str">"Bathing
     <span style="color: grey">➥</span> Suite"</span>])
         </pre>
     </div>
@@ -243,7 +245,8 @@ A list of things not to forget when going to the sea (not travelling): <br/>- Su
         <pre>
 <span class="lmql-comment"># zero-shot cot based on <a href="https://arxiv.org/pdf/2205.11916.pdf" target="_blank">https://arxiv.org/pdf/2205.11916.pdf</a>
 </span><span class="lmql-kw">argmax</span>
-   <span class="lmql-str"><anchor>"""Q: <label><div class="multiline">Existing prompting schemes like <i>Chain-of-Thought</i> can easily be expressed as simple LMQL queries.</div><div class="bridge"></div></label><div class="dot"></div></anchor>It was Sept. 1st, 2021 a week ago.
+   <span class="lmql-str"><anchor class="anchor-1">"""Q: <label><div class="multiline">Existing prompting schemes like <i>Chain-of-Thought</i> can easily be expressed as simple LMQL queries.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>It was Sept. 1st, 2021 a week ago.
     <span style="color: grey">➥</span> What is the date 10 days ago in MM/DD/YYYY?
    Answer Choices: (A) 08/29/2021 (B) 08/28/2021
     <span style="color: grey">➥</span> (C) 08/29/1925 (D) 08/30/2021 (E) 05/25/2021
@@ -252,11 +255,13 @@ A list of things not to forget when going to the sea (not travelling): <br/>- Su
    <span class="lmql-str">"<span class="lmql-var sync val1">[REASONING]</span>\n"</span>
    <span class="lmql-str">"Therefore, among A through F, the answer
     <span style="color: grey">➥</span> is<span class="lmql-var sync val2">[RESULT]</span>"</span>
-   <anchor><span class="lmql-kw">assert</span> RESULT == <span class="lmql-str">"A"</span><label><div class="multiline">LMQL also support Python's <tt>assert</tt> to check the correctness of the generated output (e.g. for dataset evaluation).</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+   <anchor class="anchor-2"><span class="lmql-kw">assert</span> RESULT == <span class="lmql-str">"A"</span><label><div class="multiline">LMQL also support Python's <tt>assert</tt> to check the correctness of the generated output (e.g. for dataset evaluation).</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
 <span class="lmql-kw">from</span>
    <span class="lmql-str">"openai/text-davinci-003"</span>
 <span class="lmql-kw">where</span>
-   <anchor>RESULT <span class="lmql-kw">in</span> [<span class="lmql-str">"A"</span>, <span class="lmql-str">"B"</span>, <span class="lmql-str">"C"</span>, <span class="lmql-str">"D"</span>, <span class="lmql-str">"E"</span>, <span class="lmql-str">"F"</span>]<label><div class="multiline">By constraining the final result variable <tt>RESULT</tt>, the LM's response can be parsed robustly.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+   <anchor class="anchor-3">RESULT <span class="lmql-kw">in</span> [<span class="lmql-str">"A"</span>, <span class="lmql-str">"B"</span>, <span class="lmql-str">"C"</span>, <span class="lmql-str">"D"</span>, <span class="lmql-str">"E"</span>, <span class="lmql-str">"F"</span>]<label><div class="multiline">By constraining the final result variable <tt>RESULT</tt>, the LM's response can be parsed robustly.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
         </pre>
     </div>
     <div class="output" >
@@ -287,12 +292,15 @@ Q: It was Sept. 1st, 2021 a week ago. What is the date 10 days ago in MM/DD/YYYY
         </h3>
         <pre>
 <span class="lmql-comment"># metaprompting based on <a href="https://arxiv.org/pdf/2102.07350.pdf" target="_blank">https://arxiv.org/pdf/2102.07350.pdf</a>
-</span><anchor><span class="lmql-kw">beam</span>(n=2)<label><div class="multiline">LMQL's Scripted Beam Search decodes <tt>EXPERT</tt> and <tt>ANSWER</tt> jointly, exploring multiple possible answers.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+</span><anchor class="anchor-1"><span class="lmql-kw">beam</span>(n=2)<label><div class="multiline">LMQL's Scripted Beam Search decodes <tt>EXPERT</tt> and <tt>ANSWER</tt> jointly, exploring multiple possible answers.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
    <span class="lmql-str">"Q: What are Large Language Models?\n\n"</span>
    <span class="lmql-str">"A good person to answer this question
     <span style="color: grey">➥</span> would be<span class="lmql-var sync val1">[EXPERT]</span>\n\n"</span>
-  <anchor> expert_name = EXPERT.rstrip(<span class="lmql-str">".\n"</span>)<label><div class="multiline">LMQL supports arbitrary Python code in the prompt clause, enabling dynamic prompts and text processing.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
-   <span class="lmql-str">"For instance,<anchor>{expert_name}<label><div class="multiline">The previously generated <tt>EXPERT</tt> name can be used as part of the follow up prompt.</div><div class="bridge"></div></label><div class="dot"></div></anchor> would answer<span class="lmql-var sync val2">[ANSWER]</span>"</span>
+  <anchor class="anchor-2"> expert_name = EXPERT.rstrip(<span class="lmql-str">".\n"</span>)<label><div class="multiline">LMQL supports arbitrary Python code in the prompt clause, enabling dynamic prompts and text processing.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
+   <span class="lmql-str">"For instance,<anchor class="anchor-3">{expert_name}<label><div class="multiline">The previously generated <tt>EXPERT</tt> name can be used as part of the follow up prompt.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor> would answer<span class="lmql-var sync val2">[ANSWER]</span>"</span>
 <span class="lmql-kw">from</span> 
    <span class="lmql-str">"openai/text-davinci-001"</span>
 <span class="lmql-kw">where</span>
@@ -329,8 +337,9 @@ Q: What are Large Language Models?<br/><br/>A good person to answer this questio
 <span class="lmql-kw">import</span> re
 <span class="lmql-kw">from</span> lmql.demo <span class="lmql-kw">import</span> gsm8k_<span class="lmql-kw">sample</span>s
 
-<anchor><span class="lmql-kw">def</span> calc(expr):<label><div class="multiline">Users can define utility functions in standard Python. These can be used to augment the LM's reasoning capabilities, e.g. with respect to arithmetic evaluation.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
-      expr = re.sub(r<span class="lmql-str">"[^0-9+-*/().]"</span>, <span class="lmql-str">""</span>, expr)
+<anchor class="anchor-1"><span class="lmql-kw">def</span> calc(expr):<label><div class="multiline">Users can define utility functions in standard Python. These can be used to augment the LM's reasoning capabilities, e.g. with respect to arithmetic evaluation.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
+      expr = re.sub(r<span class="lmql-str">"[^0-9+\-*/().]"</span>, <span class="lmql-str">""</span>, expr)
       <span class="lmql-kw">return</span> eval(expr)
 
 <span class="lmql-kw">argmax</span>(openai_chunksize=64, max_len=2048)
@@ -349,7 +358,8 @@ Q: What are Large Language Models?<br/><br/>A good person to answer this questio
          <span class="lmql-str">"<span class="lmql-var sync val1">[REASON_OR_CALC]</span>"</span>
          <span class="lmql-kw">if</span> REASON_OR_CALC.endswith(<span class="lmql-str">"&lt;&lt;"</span>):
             <span class="lmql-str">" <span class="lmql-var sync val2">[EXPR]</span>"</span>
-            <span class="lmql-str">" {<anchor>calc(EXPR)<label><div class="multiline">When arithmetic evaluation is requested by the model, the <tt>calc</tt> function is called and the result is fed back to the model.</div><div class="bridge"></div></label><div class="dot"></div></anchor>}&gt;&gt;"</span>
+            <span class="lmql-str">" {<anchor class="anchor-2">calc(EXPR)<label><div class="multiline">When arithmetic evaluation is requested by the model, the <tt>calc</tt> function is called and the result is fed back to the model.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>}&gt;&gt;"</span>
          <span class="lmql-kw">el</span><span class="lmql-kw">if</span> REASON_OR_CALC.endswith(<span class="lmql-str">"So
           <span style="color: grey">➥</span> the answer"</span>):
             break
@@ -413,7 +423,8 @@ is</span>
             </a>
         </h3>
         <pre>
-<anchor><span class="lmql-kw">async</span> <span class="lmql-kw">def</span> wikipedia(q):<label><div class="multiline">LMQL also supports <tt>async</tt> functions, enabling users to query external (web) services during decoding.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+<anchor class="anchor-1"><span class="lmql-kw">async</span> <span class="lmql-kw">def</span> wikipedia(q):<label><div class="multiline">LMQL also supports <tt>async</tt> functions, enabling users to query external (web) services during decoding.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
    <span class="lmql-kw">from</span> lmql.http <span class="lmql-kw">import</span> fetch
    <span class="lmql-kw">try</span>:
       q = q.strip(<span class="lmql-str">"\n '."</span>)
@@ -428,7 +439,8 @@ is</span>
    <span class="lmql-str">"Action: Let's search Wikipedia for the
     <span style="color: grey">➥</span> term '<span class="lmql-var sync val1">[TERM]</span>\n"</span>
    result = <span class="lmql-kw">await</span> wikipedia(TERM)
-   <span class="lmql-str">"Result: <anchor>{result}<label><div class="multiline">The retrieved Wikipedia result can be integrated dynamically during decoding, providing the LM with additional context.</div><div class="bridge"></div></label><div class="dot"></div></anchor>\n"</span>
+   <span class="lmql-str">"Result: <anchor class="anchor-2">{result}<label><div class="multiline">The retrieved Wikipedia result can be integrated dynamically during decoding, providing the LM with additional context.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>\n"</span>
    <span class="lmql-str">"Final Answer:<span class="lmql-var sync val2">[ANSWER]</span>"</span>
 <span class="lmql-kw">from</span> 
    <span class="lmql-str">"openai/text-davinci-003"</span>
@@ -463,13 +475,15 @@ Q: From which countries did the Norse originate?<br/>Action: Let's search Wikipe
             </a>
         </h3>
         <pre>
-<span class="lmql-comment"><anchor># simple kv storage<label><div class="multiline">The utility functions invoked by the model, can also be used to mutate state during decoding. For example, here, <tt>assign</tt> and <tt>get</tt> implement a simple key-value storage.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+<span class="lmql-comment"><anchor class="anchor-1"># simple kv storage<label><div class="multiline">The utility functions invoked by the model, can also be used to mutate state during decoding. For example, here, <tt>assign</tt> and <tt>get</tt> implement a simple key-value storage.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
 </span>storage = {}
 <span class="lmql-kw">def</span> assign(key, value): storage[key] = value; <span class="lmql-kw">return</span> f<span class="lmql-str">'{{{key}: "{value}"}}'</span>
 <span class="lmql-kw">def</span> get(key): <span class="lmql-kw">return</span> storage.get(key)
 
 <span class="lmql-kw">argmax</span>(n=1, openai_chunksize=128, max_len=2048, step_budget=4*2048)
-   <span class="lmql-str"><anchor>"""In your reasoning you can use actions.<label><div class="multiline">In the prompt, we explicitly instruct the model to make use of the <tt>assign</tt> and <tt>get</tt> actions.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+   <span class="lmql-str"><anchor class="anchor-2">"""In your reasoning you can use actions.<label><div class="multiline">In the prompt, we explicitly instruct the model to make use of the <tt>assign</tt> and <tt>get</tt> actions.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
     <span style="color: grey">➥</span> You do this as follows:
    `action_name(&lt;args&gt;) # result: &lt;inserted
     <span style="color: grey">➥</span> result&gt;`
@@ -482,7 +496,8 @@ Q: From which countries did the Norse originate?<br/>Action: Let's search Wikipe
     <span style="color: grey">➥</span> these actions, let's solve the following
     <span style="color: grey">➥</span> question.
    
-   <anchor>Q: Alice, Bob, and Claire are playing a<label><div class="multiline">After our action instructions, we provide the model with the actual reasoning task.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+   <anchor class="anchor-3">Q: Alice, Bob, and Claire are playing a<label><div class="multiline">After our action instructions, we provide the model with the actual reasoning task.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
     <span style="color: grey">➥</span> game. At the start of the game, they
     <span style="color: grey">➥</span> are each holding a ball: Alice has a
     <span style="color: grey">➥</span> black ball, Bob has a brown ball, and
@@ -493,7 +508,8 @@ Q: From which countries did the Norse originate?<br/>Action: Let's search Wikipe
     <span style="color: grey">➥</span> and Bob swap balls. At the end of the
     <span style="color: grey">➥</span> game, what ball does Alice have?
    A: Let's think step by step.\n"""</span>
-   <anchor><span class="lmql-kw">for</span> i <span class="lmql-kw">in</span> range(32):<label><div class="multiline">During reasoning, we make sure to intercept any <tt>assign</tt> and <tt>get</tt> actions, and inject the corresponding return values on the fly.</div><div class="bridge"></div></label><div class="dot"></div></anchor>
+   <anchor class="anchor-4"><span class="lmql-kw">for</span> i <span class="lmql-kw">in</span> range(32):<label><div class="multiline">During reasoning, we make sure to intercept any <tt>assign</tt> and <tt>get</tt> actions, and inject the corresponding return values on the fly.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>
       <span class="lmql-str">"<span class="lmql-var sync val1">[REASONING]</span>"</span>
       <span class="lmql-kw">if</span> REASONING.endswith(<span class="lmql-str">"# result"</span>):
          cmd = REASONING.rsplit(<span class="lmql-str">"`"</span>,1)[-1]
@@ -503,7 +519,7 @@ Q: From which countries did the Norse originate?<br/>Action: Let's search Wikipe
          break
    <span class="lmql-str">"""Therefore at the end of the game,
     <span style="color: grey">➥</span> Alice has the<span class="lmql-var sync val2">[OBJECT]</span>"""</span>
-   <span class="lmql-kw">assert</span> <span class="lmql-str">"purple ball"</span> <span class="lmql-kw">in</span> OBJECT
+   <span class="lmql-kw">assert</span> <span class="lmql-str">"blue ball."</span> <span class="lmql-kw">in</span> OBJECT
 <span class="lmql-kw">from</span> 
    <span class="lmql-str">"openai/text-davinci-003"</span>
 <span class="lmql-kw">where</span>
@@ -604,7 +620,8 @@ blue`<br/>Therefore at the end of the game, Alice has the</span>
     <span style="color: grey">➥</span> the message can be considered to be<span class="lmql-var sync val2">[CLASSIFICATION]</span>"""</span>
 <span class="lmql-kw">from</span> 
    <span class="lmql-str">"openai/text-davinci-003"</span>
-<span class="lmql-kw"><anchor>distribution<label><div class="multiline">The <tt>distribution</tt> clause can be used to compute a distribution over a fixed set of values, conditioned on the LM's analysis of the input.</div><div class="bridge"></div></label><div class="dot"></div></anchor></span>
+<span class="lmql-kw"><anchor class="anchor-1">distribution<label><div class="multiline">The <tt>distribution</tt> clause can be used to compute a distribution over a fixed set of values, conditioned on the LM's analysis of the input.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor></span>
    CLASSIFICATION <span class="lmql-kw">in</span> [<span class="lmql-str">" positive"</span>, <span class="lmql-str">" neutral"</span>, <span class="lmql-str">"
     <span style="color: grey">➥</span> negative"</span>]
         </pre>
@@ -623,6 +640,35 @@ Review: We had a great stay. Hiking in the mountains was fabulous and the food i
         <span class='legend'>Highlighted text is model output.</span>
     </div>
 </div>
+<div id="precomputed-chat-json" class="side-by-side compact ">
+    <div class="query">
+        <h3>
+            LMQL
+            <a href="playground#chat" target="_blank">
+            Open In Playground
+            </a>
+        </h3>
+        <pre>
+<span class="lmql-kw">argmax</span> 
+   <span class="lmql-str">"<anchor class="anchor-1">{:system}<label><div class="multiline">The prompt clause can contain special marker tokens like <tt>{:system}</tt> or <tt>{:user}</tt>, to mark parts of the prompt with different roles (e.g. required for Chat models).</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor> You are a marketing chatbot
+    <span style="color: grey">➥</span> for the language model query language
+    <span style="color: grey">➥</span> (LMQL)."</span>
+   <span class="lmql-kw">for</span> i <span class="lmql-kw">in</span> range(10):
+      <span class="lmql-str">"{:user} {<anchor class="anchor-2">await input()<label><div class="multiline">The prompt clause can also contain I/O code like <tt>await input()</tt>, which enables interactive queries, integrating user input during query execution, e.g. for chatbot-like interfaces.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor>}"</span>
+      <span class="lmql-str">"{:assistant} [ANSWER]"</span>
+<span class="lmql-kw">from</span>
+   <span class="lmql-str"><anchor class="anchor-3">"chatgpt"<label><div class="multiline">Next to completion models, LMQL also supports <a href="https://platform.openai.com/docs/guides/chat" target="_blank">OpenAI Chat models</a>, including ChatGPT and GPT-4.</div><div class="bridge"></div>
+                </label><div class="dot"></div></anchor></span>
+        </pre>
+    </div>
+    <div class="output" >
+        <h3>Model Output</h3>
+        <div class="chat"><span class="tag"><span class="content">&lt;lmql:system/&gt;</span></span><span class="prompt tag-system"><span class="content"> You are a marketing chatbot for the language model query language (LMQL).</span></span><span class="tag"><span class="content">&lt;lmql:user/&gt;</span></span><span class="prompt tag-user"><span class="content"> What is the best way to interact with LLMs?</span></span><span class="tag"><span class="content">&lt;lmql:assistant/&gt;</span></span><span class="variable v0 tag-assistant"><span class="badge">ANSWER</span><span class="content"> The best way to interact with LLMs (Language Model Models) is through a query language like LMQL. LMQL allows you to easily and efficiently query large language models and retrieve the information you need. With LMQL, you can specify the input text, the output format, and the model you want to use , all in a single query. This makes it easy to integrate LLMs into your applications and workflows, and to get the most out of these powerful language models. Additionally, LMQL provides a standardized way of interacting with LLMs, which makes it easier for developers and data scientists to collaborate and share their work .</span></span></div>
+        <span class='legend'>Highlighted text is model output.</span>
+    </div>
+</div>
     </div>
     <div class="container is-max-desktop">
       <span class="learn-more">
@@ -634,55 +680,146 @@ Review: We had a great stay. Hiking in the mountains was fabulous and the food i
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-        <p>
-        Large language models have demonstrated outstanding performance on a wide range of tasks such as question answering and code generation.
-        On a high level, given an input, a language model can be used to automatically complete the sequence in a statistically-likely way. Based on this, users prompt these models with language instructions or examples, to implement a variety of downstream tasks. Advanced prompting methods can even imply interaction between the language model, a user, and external tools such as calculators. However, to obtain state-of-the-art performance or adapt language models for specific tasks, complex task- and model-specific programs have to be implemented, which may still require ad-hoc interaction.
-        </p>
-        <p>
-        Based on this, we present the novel idea of Language Model Programming (LMP). LMP generalizes language model prompting from pure text prompts to an intuitive combination of text prompting and scripting. Additionally, LMP allows constraints to be specified over the language model output. This enables easy adaption to many tasks, while abstracting language model internals and providing high-level semantics.
-        </p>
-        <p>
-        To enable LMP, we implement LMQL (short for Language Model Query Language), which leverages the constraints and control flow from an LMP prompt to generate an efficient inference procedure that minimizes the number of expensive calls to the underlying language model.
-        </p>
-        <p>
-        We show that LMQL can capture a wide range of state-of-the-art prompting methods in an intuitive way, especially facilitating interactive flows that are challenging to implement with existing high-level APIs. Our evaluation shows that we retain or increase the accuracy on several downstream tasks, while also significantly reducing the required amount of computation or cost in the case of pay-to-use APIs.
-        </p>
+<section class="hero teaser">
+  <div class="container is-centered">
+    <div class="hero-body has-text-centered" style="margin-top: 30pt;">
+      <h2 class="subtitle has-text-centered">
+        Getting Started with LMQL
+      </h2>
+      <p style="margin: auto;">
+      LMQL is available in a web-based Playground IDE or can be installed via the Python package manager:
+      </p>
+
+      <div class="columns is-getting-started">
+        <div class="column getting-started">
+          <h2>Explore LMQL</h2>
+          <a class="primary" href="https://lmql.ai/playground">
+            <i class="fa fa-play"></i>
+            Playground IDE
+          </a>
+          <a href="https://github.com/eth-sri/lmql">
+            <i class="fa fa-github"></i>
+            GitHub Repo
+          </a>
+          <a href="https://docs.lmql.ai">
+            <i class="fa fa-book"></i>
+            Read the Documentation
+          </a>
+        </div>
+
+        <div class="column getting-started">
+          <h2>Run Locally</h2>
+          <div class="cmd">
+              pip install lmql
+          </div>
+          To run LMQL locally, read the <span><a href="https://docs.lmql.ai/en/latest/quickstart.html">Getting Started</a></span> section of the documentation.
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
   </div>
 </section>
 
+<section class="section is-dark">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <!-- Scripted Prompting -->
+      <div class="column">
+        <!-- <div class="content">
+          <figure class="image">
+            <img src="static/images/scripted-prompting.png" style="margin-top: 35pt"/> 
+          </figure>
+          <h2 class="title is-3">Scripted Prompting</h2>
+          <p>
+            LMQL allows control flow as part of the prompt clause, which can be used to implement scripted and interactive prompting mechanics (e.g. action-based interaction, tool augmentation, etc.).
+          </p>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/dollyzoom-stacked.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+        <div class="content" style="text-align: left;">
+          <h2 class="title is-3">Scripted Prompts</h2>
+          <p>
+            LMQL generalizes natural language prompting, making it more expressive while remaining accessible. For this, LMQL builds on top of Python, allowing users to express <b>natural language prompts that also contain code</b>. The resulting queries can be directly executed on language models like OpenAI's GPT models. <b>Fixed answer templates and intermediate instructions</b> allow the user to steer the LLM's reasoning process.
+          </p>
+          <p>
+            <a>
+              Learn more about Scripting <i style="margin-left: 2pt;" class="fa fa-arrow-right"></i>
+            </a>
+          </p>
+          <!-- <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/dollyzoom-stacked.mp4"
+                    type="video/mp4">
+          </video> -->
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Eager, partial validation -->
+      <div class="column">
+        <div class="content is-vertically-centered">
+          <!-- <figure class="image">
+            <img src="static/images/decoder.png" style="width: 185pt; margin: auto;"/> 
+          </figure> -->
+<div class="code"><b>for</b> i <b>i</b>n range(n):
+ "[THOUGHT]"
+ <b>if</b> THOUGHT.endswith("<<"):
+   " [EXPR]"
+   " {calc(EXPR)}>>"
+ <b>elif</b> THOUGHT.endswith("So the answer"):
+   <b>break</b>
+"is[RESULT]"
+</div>
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="section">
   <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-              <h2 class="title is-3">Experimental Results</h2>
-              
-              Compared to standard decoding using <a href="https://huggingface.co/docs/transformers/v4.18.0/en/main_classes/text_generation#transformers.generation_utils.GenerationMixin.generate" target="_blank">🤗&nbsp;Transformers' <tt>generate()</tt></a> function, LMQL allows for high-level control and requires less tokens to be processed.<br/>
-
-              <figure class="image">
-                  <img src="static/images/cot.svg"/>
-                  Chain-Of-Though reasoning with LMQL vs. standard decoding.<br/>
-              </figure>
-
-              <figure class="image" >
-                <img src="static/images/interactive.svg"/>
-                Query statistics of using LMQL for interactive language model querying vs. standard decoding.<br/>
-            </figure>
-            <span class="footnote">
-              *We estimate cost savings based on the current token price of $0.02/1K tokens of the <a href="https://openai.com/api/pricing" target="_blank">GPT-3 <tt>davinci</tt> model</a>.
-            </span>
-          </div>
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="content decoding">
+          <!-- <figure class="image">
+            <img src="static/images/decoder.png" style="width: 185pt; margin: auto;"/> 
+          </figure> -->
+          <object type="image/svg+xml" data="static/images/constrained-decoding.svg" id="decoding-animation"></object>
+          <a onclick="replay(this)" class="replay">
+            <i class="fa fa-repeat"></i> Replay
+          </a>
+        </div>
       </div>
+      <div class="column">
+        <!-- <div class="content">
+          <figure class="image">
+            <img src="static/images/scripted-prompting.png" style="margin-top: 35pt"/> 
+          </figure>
+          <h2 class="title is-3">Scripted Prompting</h2>
+          <p>
+            LMQL allows control flow as part of the prompt clause, which can be used to implement scripted and interactive prompting mechanics (e.g. action-based interaction, tool augmentation, etc.).
+          </p>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/dollyzoom-stacked.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+        <div class="content" style="text-align: left;">
+          <h2 class="title is-3">Output Constraints</h2>
+          <p>
+            In LMQL, users can specify high-level, logical constraints over the language model output. The LMQL runtime then automatically translates these constraints into token-level prediction masks, which can be applied eagearly to the model distribution during text generation. In contrast to existing approaches, LMQL can therefore enforce many constraints strictly, making it impossible for the model to generate content that does not satisfy the requirements. This simplifies the integration of language models with automated computer systems, as current models often output results in varying formats that can be hard to process for other systems.
+          </a>
+          </p>
+          <!-- <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/dollyzoom-stacked.mp4"
+                    type="video/mp4">
+          </video> -->
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -759,9 +896,85 @@ Review: We had a great stay. Hiking in the mountains was fabulous and the food i
   </div>
 </section>
 
+
+<section class="section is-dark">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column" style="font-size: 10pt;">
+        <b class="title is-5 has-text-left" style="font-size: 12pt; text-align: left;display: block; margin: 0; color: rgb(85, 83, 83); margin-bottom: 4pt;">Read The Paper</b>
+        <h5 class="title is-4 has-text-left" style="margin-bottom: 2pt;">Prompting Is Programming: A Query Language For Large Language Models
+        </h5>
+        <!-- <i style="text-align: left; display: block;">
+          Accepted at <a href="http://pldi23.sigplan.org/">PLDI'23</a>.<br/><br/>
+        </i> -->
+        <div class="content has-text-justified">
+        <div class="authors">
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.sri.inf.ethz.ch/people/luca">Luca Beurer-Kellner</a>,</span>
+            <span class="author-block">
+              <a href="https://www.sri.inf.ethz.ch/people/marc">Marc Fischer</a>,</span>
+            <span class="author-block">
+              <a href="https://www.sri.inf.ethz.ch/people/martin">Martin Vechev</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://www.sri.inf.ethz.ch"><b>SRI</b>lab</a> @   ETH Zürich, Switzerland</span>
+          </div>
+        </div>
+        <p>
+        <!-- <b style="display: block; text-align: center;">Abstract</b><br/> -->
+        Large language models have demonstrated outstanding performance on a wide range of tasks such as question answering and code generation.
+        On a high level, given an input, a language model can be used to automatically complete the sequence in a statistically-likely way. Based on this, users prompt these models with language instructions or examples, to implement a variety of downstream tasks. Advanced prompting methods can even imply interaction between the language model, a user, and external tools such as calculators. However, to obtain state-of-the-art performance or adapt language models for specific tasks, complex task- and model-specific programs have to be implemented, which may still require ad-hoc interaction.
+        </p>
+        <p>
+        Based on this, we present the novel idea of Language Model Programming (LMP). LMP generalizes language model prompting from pure text prompts to an intuitive combination of text prompting and scripting. Additionally, LMP allows constraints to be specified over the language model output. This enables easy adaption to many tasks, while abstracting language model internals and providing high-level semantics.
+        </p>
+        <p>
+        To enable LMP, we implement LMQL (short for Language Model Query Language), which leverages the constraints and control flow from an LMP prompt to generate an efficient inference procedure that minimizes the number of expensive calls to the underlying language model.
+        </p>
+        <p>
+        We show that LMQL can capture a wide range of state-of-the-art prompting methods in an intuitive way, especially facilitating interactive flows that are challenging to implement with existing high-level APIs. Our evaluation shows that we retain or increase the accuracy on several downstream tasks, while also significantly reducing the required amount of computation or cost in the case of pay-to-use APIs.
+        </p>
+        <span class="link-block">
+          <a href="https://arxiv.org/pdf/2212.06094"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <i class="fa-solid fa-file-pdf"></i>
+            </span>
+            <span>Read Full Paper</span>
+          </a>
+        </span>
+        </div>
+      </div>
+      <div class="column is-experimental-results">
+        <br/>
+        <p class="has-text-left">
+          <b>Experimental Results</b><br/>
+          Compared to standard decoding using <a href="https://huggingface.co/docs/transformers/v4.18.0/en/main_classes/text_generation#transformers.generation_utils.GenerationMixin.generate" target="_blank">🤗&nbsp;Transformers' <tt>generate()</tt></a> function, LMQL allows for high-level control and requires less tokens to be processed.
+        </p>
+
+        <figure class="image">
+            <img src="static/images/cot.svg"/>
+            Chain-Of-Though reasoning with LMQL vs. standard decoding.<br/>
+        </figure>
+
+        <figure class="image" >
+          <img src="static/images/interactive.svg"/>
+          Query statistics of using LMQL for interactive language model querying vs. standard decoding.<br/>
+      </figure>
+      <span class="footnote">
+        *We estimate cost savings based on the current token price of $0.02/1K tokens of the <a href="https://openai.com/api/pricing" target="_blank">GPT-3 <tt>davinci</tt> model</a>.
+      </span>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+    <h4 class="title">BibTeX</h4>
     <pre><code>
 @article{beurer2022prompting,
   title={Prompting Is Programming: A Query Language For Large Language Models},
@@ -774,9 +987,20 @@ Review: We had a great stay. Hiking in the mountains was fabulous and the food i
 </section>
 
 
-<div class="custom-footer">
-Template adapted from <a href="http://nerfies.github.io/">Nerfies</a> by Keunhong Park et al. and uses <a href="https://bulma.io/">Bulma</a>.
-</div>
+<section class="section custom-footer">
+  <div class="container is-max-desktop content">
+    <div class="columns">
+      <div class="column" style="text-align: left;">
+        LMQL is a research project by the <a href="https://www.sri.inf.ethz.ch/">Secure, Reliable, and Intelligent Systems Lab</a> at ETH Zürich.<br/>
+        <img src="static/images/institution-logos.svg"/>
+      </div>
+      <div class="column" style="text-align: left;">
+        Site template adapted from <a href="http://nerfies.github.io/">Nerfies</a> by Keunhong Park et al. and uses <a href="https://bulma.io/">Bulma</a>.<br/>
+        Last updated on Sat, Apr 1, 11:49 PM (UTC)<br/>
+      </div>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
