@@ -59,9 +59,13 @@
   <section class="hero hero-big">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <div class="columns is-centered">
+      <div class="columns">
         <div class="column column-big">
-          <span class="big">Supercharge your prompting with <ul class="inner">
+          <span class="big">Supercharge your prompting 
+            <span class="block">
+            with
+            <ul class="inner">
+            <span class="placeholder"> AAAAAAAAAAA.</span>
             <li> control flow.</li>
             <li> constraints.</li>
             <li> a debugger.</li>
@@ -70,9 +74,10 @@
             <li> 🤗 Transformers.</li>
             <li> templates.</li>
             <li> code.</li>
-            <li> Python.</li>
+            <li> token masking.</li>
             <li> retrieval.</li>
             </ul>
+            </span>
           </span><br/>
           <span class="big-sub">
           <img src="static/images/lmql.svg" style="height:15pt;"/> LMQL is a programming language for language model interaction:
@@ -677,11 +682,13 @@ Review: We had a great stay. Hiking in the mountains was fabulous and the food i
 
 <section class="hero teaser">
   <div class="container is-centered">
-    <div class="hero-body has-text-centered" style="width: 400pt; max-width: 100%;margin-top: 30pt;">
+    <div class="hero-body has-text-centered" style="margin-top: 30pt;">
       <h2 class="subtitle has-text-centered">
         Getting Started with LMQL
       </h2>
+      <p style="margin: auto;">
       LMQL is available in a web-based Playground IDE or can be installed via the Python package manager:
+      </p>
 
       <div class="columns is-getting-started">
         <div class="column getting-started">
@@ -931,7 +938,7 @@ Review: We had a great stay. Hiking in the mountains was fabulous and the food i
         </span>
         </div>
       </div>
-      <div class="column">
+      <div class="column is-experimental-results">
         <br/>
         <h4 class="title is-5">Experimental Results</h4>
         Compared to standard decoding using <a href="https://huggingface.co/docs/transformers/v4.18.0/en/main_classes/text_generation#transformers.generation_utils.GenerationMixin.generate" target="_blank">🤗&nbsp;Transformers' <tt>generate()</tt></a> function, LMQL allows for high-level control and requires less tokens to be processed.<br/>
@@ -952,12 +959,6 @@ Review: We had a great stay. Hiking in the mountains was fabulous and the food i
     <!--/ Abstract. -->
   </div>
 </section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-  </div>
-</section>
-
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h4 class="title">BibTeX</h4>
@@ -973,10 +974,20 @@ Review: We had a great stay. Hiking in the mountains was fabulous and the food i
 </section>
 
 
-<div class="custom-footer">
-Template adapted from <a href="http://nerfies.github.io/">Nerfies</a> by Keunhong Park et al. and uses <a href="https://bulma.io/">Bulma</a>.<br/>
-Last updated on Fri, Mar 31, 11:28 PM (GMT+2)<br/>
-</div>
+<section class="section custom-footer is-dark">
+  <div class="container is-max-desktop content">
+    <div class="columns">
+      <div class="column" style="text-align: left;">
+        LMQL is a research project by the <a href="https://www.sri.inf.ethz.ch/">Secure, Reliable, and Intelligent Systems Lab</a> at ETH Zürich.<br/>
+        <img src="static/images/institution-logos.svg"/>
+      </div>
+      <div class="column" style="text-align: left;">
+        Site template adapted from <a href="http://nerfies.github.io/">Nerfies</a> by Keunhong Park et al. and uses <a href="https://bulma.io/">Bulma</a>.<br/>
+        Last updated on Sat, Apr 1, 9:53 AM (GMT+2)<br/>
+      </div>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>

@@ -30,6 +30,12 @@
     margin-bottom: -30pt;
 }
 
+span.block {
+    display: inline-block;
+    /* no word break */
+    white-space: nowrap;
+}
+
 .big {
     font-size: 38pt;
     text-align: center;
@@ -37,16 +43,16 @@
     font-weight: 800;
     color: #39414d;
     line-height: 1.2;
-    width: 15em;
     text-align: left;
     padding: none;
-    display: inline-block;
+    display: inline;
     margin-bottom: 5pt;
     margin-top: 0pt;
-    max-width: 70%;
+    max-width: 70vw;
 }
 
 .big-sub {
+    margin-top: 10pt;
     font-size: 14pt;
     max-width: 35em;
     display: block;
@@ -60,13 +66,18 @@
 
 
 .big ul {
-    display: inline;
+    display: inline-block;
     margin: 0;
     padding: 0;
     position: relative;
     overflow-y: visible;
-    margin-left: 5pt;
     text-align: left;
+}
+
+.big ul span.placeholder {
+    opacity: 0;
+    visibility: hidden;
+    user-select: none;
 }
 
 
@@ -649,10 +660,15 @@ span.option.active {
     text-align: center;
     font-size: 8pt;
     color: grey;
-    max-width: 300pt;
-    margin: auto;
     margin-bottom: 5pt;
-    display: block;
+    padding-top: 40pt;
+}
+
+.custom-footer img {
+    margin: 10pt;
+    margin-left: 0;
+    height: 10pt;
+    opacity: 0.5;
 }
 
 .distribution {
@@ -820,7 +836,7 @@ button.next:after {
     }
 
     .hero-big {
-        margin-bottom: 0pt;
+        margin-bottom: -20pt;
     }
 
     .big {
@@ -843,9 +859,8 @@ section.is-dark {
 
 .getting-started {
     width: 220pt;
+    max-width: calc(100% - 20pt);
     font-size: 0.85em;
-    max-width: 100%;
-    margin: auto;
     border: 0.5 pt solid grey;
     padding: 5pt;
     margin: 20pt 5pt;
@@ -856,6 +871,13 @@ section.is-dark {
     flex-direction: row;
     flex-direction: column;
     box-shadow: 0pt 0pt 10pt 0pt rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 769px), print {
+    .getting-started {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .getting-started h2 {
@@ -885,7 +907,7 @@ section.is-dark {
     padding: 5pt;
     margin: 5pt;
     border-radius: 4pt;
-    background-color: #dacaca;
+    background-color: #dcdcdc;
     color: rgb(35, 35, 35);
     font-family: monospace;
     font-weight: bold;
@@ -913,7 +935,7 @@ section.is-dark {
 }
 
 .columns.is-getting-started {
-    margin-top: 5pt;
+    margin-top: 5pt;    
 }
 
 .authors .author-block {
@@ -923,6 +945,7 @@ section.is-dark {
 
 .authors {
     margin-bottom: 10pt;
+    text-align: left;
 }
 
 .code b {
@@ -950,3 +973,11 @@ section.is-dark {
     justify-content: center;
     height: 100%;
 }
+
+.is-experimental-results {
+    margin-top: 20pt;
+}
+
+.column.is-experimental-results {
+    font-size: 10pt !important;
+} 
