@@ -1,0 +1,21 @@
+---
+title: Works Across Backends
+template: middle
+---
+
+LMQL automatically makes your LLM code portable across several backends. You can switch between them with a single line of code.
+
+<div class="cards">
+    <div>
+        <img src="https://logodix.com/logo/73721.png"/>
+        <h1>OpenAI</h1>
+    </div>
+    <div>
+        <span style="font-size: 3.0em;">🦙</span>
+        <h1>llama.cpp</h1>
+    </div>
+    <div>
+        <span style="font-size: 3.0em;">🤗</span>
+        <h1>Transformers</h1>
+    </div>
+</div>
