@@ -21,7 +21,7 @@ import { data as features } from './features/features.data.js'
 </style>
 
 <div v-for="feature in features" :key="feature.title">
-  <LMFeature v-bind:template="feature.template">
+  <LMFeature v-bind:template="feature.template" v-bind:new="feature.new">
     {{ feature.title }}
     <template v-slot:template>
       {{ feature.template }}

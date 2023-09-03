@@ -24,13 +24,6 @@ export default defineConfig({
           base: '/api',
           items: sidebarApi()
         },
-        { 
-          text: 'API',
-          collapsable: true,
-          collapsed: true,
-          base: '/api',
-          items: sidebarApi()
-        }
       ]
     },
     socialLinks: [

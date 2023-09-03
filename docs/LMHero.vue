@@ -3,7 +3,7 @@
     <img src="/lmql.svg" alt="LMQL" />
     <div>
     <h1>
-      <slot name="title"></slot><br/>
+      <img src="/lmql.svg" alt="LMQL" /><slot name="title"></slot><br/>
     </h1>
     <h2 class="tagline">
       <slot name="subtitle"></slot>
@@ -59,6 +59,11 @@ html.dark h2 {
   justify-content: center;
   padding: 20pt;
 }
+
+.hero h1>img {
+  display: none;
+}
+
 </style>
 <style>
 button.btn {
@@ -94,5 +99,39 @@ html.dark button.btn.primary, html.dark button.btn.primary:hover {
   background-color: rgb(91, 111, 241);
   border: 2pt solid rgb(91, 111, 241);
   color: white;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.5em;
+  }
+  .hero h2 {
+    font-size: 1.2em;
+  }
+  .hero {
+    margin: 10pt 0pt !important;
+    align-items: flex-start !important;
+  }
+
+  .hero button {
+    margin-top: 10pt;
+    margin-bottom: 0pt;
+  }
+
+  .hero img {
+    width: 40pt;
+    display: none;
+  }
+
+  .hero h1>img {
+    display: inline !important;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 1em;
+    top: 2.5pt;
+    margin-right: -5pt;
+    margin-left: -8pt;
+  }
 }
 </style>

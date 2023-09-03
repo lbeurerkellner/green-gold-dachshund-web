@@ -1,5 +1,5 @@
 <script setup>
-defineProps(['template'])
+defineProps(['template', 'new'])
 </script>
 
 <template>
@@ -8,12 +8,13 @@ defineProps(['template'])
     <div>
     <h1>
         <slot></slot>
+        <span v-if="new" class="badge">NEW</span>
     </h1>
     <p>
         <slot name="description"></slot>
     </p>
     </div>
-    <code><slot name="code"></slot></code>
+    <code class="reveal"><slot name="code"></slot></code>
 </div>
 </template>
 
@@ -45,16 +46,11 @@ h1 {
     font-size: 1.0em;
     padding: 10pt;
     border-radius: 8px;
-    border: 1pt solid rgb(230, 227, 227);
-    box-shadow: 0pt 0pt 10pt rgba(192, 190, 190, 0.639);
     padding-top: -10pt;
     background-color: #F6F6F7;
 }
 
 html.dark .feature code {
-    border: 1pt solid rgb(30, 30, 30);
-    box-shadow: 0pt 0pt 10pt rgba(51, 50, 50, 0.639);
-
     background-color: #161618;
 }
 
@@ -68,9 +64,11 @@ html.dark .feature code {
 }
 
 .feature code {
-    animation: slidefade 1s;
     transform: translateX(0);
+    animation: slidefade 0.5s;
+    animation-fill-mode: forwards;
 }
+
 </style>
 <style>
 .feature code span.lang {
@@ -98,12 +96,14 @@ div:nth-child(even)>.feature {
 
 div:nth-child(even)>.feature>code {
     margin-right: 30pt;
-    animation: slidefadeleft 1s;
+    animation: slidefadeleft 0.2s;
+    animation-fill-mode: forwards;
 }
 
 .feature.middle {
     position: relative;
     width: 520pt;
+    max-width: 100vw;
 }
 
 .feature.middle>code {
@@ -114,9 +114,23 @@ div:nth-child(even)>.feature>code {
     text-align: center;
 }
 
+span.badge {
+    background-color: rgb(117, 117, 255);
+    border-radius: 2pt;
+    font-size: 0.5em;
+    line-height: 1.2em;
+    padding: 2pt 4pt;
+    position: relative;
+    top: -3pt;
+    margin-left: 5pt;
+    color: white;
+}
+
 .cards {
     display: flex;
     flex-direction: row;
+    /* break rows */
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 40pt;
     margin-bottom: 40pt;
@@ -125,17 +139,13 @@ div:nth-child(even)>.feature>code {
 .cards>div {
     border-radius: 5pt;
     border: 1pt solid rgb(192, 190, 190);
-    margin: 0pt 5pt;
+    margin: 0pt 2.5pt;
     padding: 10pt;
     padding-top: 30pt;
     font-weight: bold;
-    box-shadow: 0pt 0pt 20pt rgba(192, 190, 190, 0.639);
     width: 100pt;
     height: 100pt;
-}
-
-html.dark .cards>div {
-    box-shadow: 0pt 0pt 20pt rgba(51, 50, 50, 0.639);
+    margin-top: 5pt;
 }
 
 .cards>div img {
@@ -150,5 +160,40 @@ html.dark .cards>div {
 .cards>div h1 {
     font-weight: bold !important;
     font-size: 10pt;
+}
+
+@media (max-width: 600px) {
+    .feature {
+        flex-direction: column !important;
+        margin-top: 10pt !important;
+    }
+
+    .feature>div:first-child {
+        margin-right: 0;
+    }
+
+    .feature>code {
+        margin-right: 0;
+        margin-top: 20pt;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: 0pt;
+        border-radius: 0;
+        box-shadow: none !important;
+        border: none !important;
+        padding-left: 20pt !important;
+        margin-right: 0 !important;
+    }
+
+    .feature.middle {
+        width: calc(100vw - 10pt);
+        padding: 0pt 10pt !important;
+        margin: 0pt;
+    }
+
+    .feature.middle>div {
+        max-width: 100%;
+        margin-left: 20pt;
+    }
 }
 </style>

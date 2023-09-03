@@ -27,6 +27,7 @@ export default createContentLoader('features/*.md', {
           description: description,
           title: page.frontmatter.title,
           template: page.frontmatter.template,
+          new: page.frontmatter.new
         }
       })
     return Promise.all(r)
