@@ -23,18 +23,12 @@ defineProps(['template', 'new'])
   margin: auto;
   display: flex;
   flex-direction: row;
-  margin-top: 120pt;
+  margin-top: 100pt;
   width: 100%;
   max-width: 750pt;
   text-align: left;
   align-items: center;
   padding: 20pt;
-}
-
-h1 {
-    font-size: 1.4em;
-    font-weight: bold;
-    margin-bottom: 10pt;
 }
 
 .feature>div:first-child {
@@ -47,11 +41,6 @@ h1 {
     padding: 10pt;
     border-radius: 8px;
     padding-top: -10pt;
-    background-color: #F6F6F7;
-}
-
-html.dark .feature code {
-    background-color: #161618;
 }
 
 .feature code {
@@ -61,6 +50,7 @@ html.dark .feature code {
 
 .feature code pre {
     margin: 0;
+    padding: 10pt;
 }
 
 .feature code {
@@ -71,14 +61,28 @@ html.dark .feature code {
 
 </style>
 <style>
+.feature .btn {
+    margin-top: 20pt;
+}
+
 .feature code span.lang {
     display: none !important;
 }
 .feature code pre {
     margin-top: -15pt !important;
     line-break: anywhere;
-    overflow-x: auto;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    padding: 15pt;
 }
+
+/* hide scroll bars */
+.feature code pre::-webkit-scrollbar {
+    display: none;
+}
+
+
 @keyframes slidefade {
     from { opacity: 0; transform: translateX(20pt); }
     to   { opacity: 1; transform: translateX(0); }
@@ -100,6 +104,24 @@ div:nth-child(even)>.feature>code {
     animation-fill-mode: forwards;
 }
 
+.feature pre.promptdown {
+    min-width: 390pt;
+    width: 390pt;
+    min-height: 180pt;
+    position: relative;
+    top: 20pt;
+    white-space: pre-wrap;
+    line-break: anywhere;
+
+    /* first line indent */
+    text-indent: 10pt !important;
+    line-height: 1.5em !important;
+}
+
+.feature.left>code {
+    display: none;
+}
+
 .feature.middle {
     position: relative;
     width: 520pt;
@@ -112,18 +134,6 @@ div:nth-child(even)>.feature>code {
 
 .feature.middle {
     text-align: center;
-}
-
-span.badge {
-    background-color: rgb(117, 117, 255);
-    border-radius: 2pt;
-    font-size: 0.5em;
-    line-height: 1.2em;
-    padding: 2pt 4pt;
-    position: relative;
-    top: -3pt;
-    margin-left: 5pt;
-    color: white;
 }
 
 .cards {
@@ -162,10 +172,16 @@ span.badge {
     font-size: 10pt;
 }
 
+
+.feature.middle pre {
+    text-align: left;
+    padding: 10pt;
+}
+
 @media (max-width: 600px) {
     .feature {
         flex-direction: column !important;
-        margin-top: 10pt !important;
+        margin-top: 20pt !important;
     }
 
     .feature>div:first-child {
@@ -194,6 +210,7 @@ span.badge {
     .feature.middle>div {
         max-width: 100%;
         margin-left: 20pt;
+        text-align: left;
     }
 }
 </style>

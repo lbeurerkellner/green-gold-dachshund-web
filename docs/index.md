@@ -7,6 +7,8 @@ outline: false
 import LMHero from './LMHero.vue'
 import LMFeature from './LMFeature.vue'
 import { data as features } from './features/features.data.js'
+import { data as examples } from './features/examples/examples.data.js'
+import LMExamples from './LMExamples.vue'
 </script>
 
 <LMHero>
@@ -34,3 +36,5 @@ import { data as features } from './features/features.data.js'
     </template>
   </LMFeature>
 </div>
+
+<LMExamples v-bind:header="true"/>

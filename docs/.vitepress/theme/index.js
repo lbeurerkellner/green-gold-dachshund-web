@@ -2,6 +2,8 @@
 import { h } from 'vue'
 import Theme from 'vitepress/theme'
 import './style.css'
+import 'promptdown/promptdown.css'
+import {pd} from "promptdown/promptdown"
 
 export default {
   extends: Theme,
@@ -11,6 +13,12 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
-    // ...
+    let plugin = {
+      install(app) {
+        app.config.globalProperties.$pd = pd
+        // on each route change
+      }
+    }
+    app.use(plugin)
   }
 }

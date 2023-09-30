@@ -1,6 +1,5 @@
 import { createContentLoader } from 'vitepress'
 import { createMarkdownRenderer } from 'vitepress'
-import { r } from 'vitepress/dist/node/serve-df7895a1';
 const config = global.VITEPRESS_CONFIG;
 
 export default createContentLoader('features/*.md', {

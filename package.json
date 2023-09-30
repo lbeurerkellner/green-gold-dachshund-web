@@ -4,6 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
+  "dependencies": {
+    "highlight.js": "^11.8.0",
+    "promptdown": "../promptdown"
+  },
   "devDependencies": {
     "vitepress": "^1.0.0-rc.10"
   },

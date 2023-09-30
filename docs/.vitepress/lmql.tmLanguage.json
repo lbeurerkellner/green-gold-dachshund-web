@@ -23,7 +23,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.lmql",
-					"match": "\\b(BEAM|beam|ARGMAX|argmax|SAMPLE|incontext|BEST_K|best_k|BEAM_VAR|beam_var|VAR|var|sample|FROM|from|WHERE|where|DISTRIBUTION|distribution)\\b"
+					"match": "\\b(BEAM|beam|ARGMAX|argmax|SAMPLE|incontext|BEST_K|best_k|BEAM_VAR|beam_var|VAR|var|sample|FROM|from|WHERE|where|DISTRIBUTION|distribution|class|def)\\b"
 				}
 			]
 		},

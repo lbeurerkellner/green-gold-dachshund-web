@@ -7,12 +7,12 @@ LMQL automatically makes your LLM code portable across several backends. You can
 
 <div class="cards">
     <div>
-        <img src="https://logodix.com/logo/73721.png"/>
-        <h1>OpenAI</h1>
-    </div>
-    <div>
         <span style="font-size: 3.0em;">🦙</span>
         <h1>llama.cpp</h1>
+    </div>
+    <div>
+        <img src="../public/openai.svg" alt="OpenAI" class="invert"/>
+        <h1>OpenAI</h1>
     </div>
     <div>
         <span style="font-size: 3.0em;">🤗</span>

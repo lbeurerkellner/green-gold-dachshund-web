@@ -8,10 +8,10 @@
     <h2 class="tagline">
       <slot name="subtitle"></slot>
     </h2>
-    <button class="primary btn">
+    <a class="primary btn" href="/guide/">
       Get Started
-    </button>
-    <button class="btn">
+    </a>
+    <button class="btn" onclick="window.open('https://github.com/eth-sri/lmql#contribute')">
       Contribute
     </button> 
     </div>
@@ -66,7 +66,7 @@ html.dark h2 {
 
 </style>
 <style>
-button.btn {
+.btn {
   padding: 4pt 10pt;
   font-size: 1.0em;
   background-color: rgb(220, 220, 220);
@@ -76,28 +76,28 @@ button.btn {
   border: 2pt solid rgb(220, 220, 220);
 }
 
-button.btn:hover {
+.btn:hover {
   border: 2pt solid rgb(192, 190, 190);
 }
 
-button.btn.primary, button.btn.primary:hover {
-  background-color: rgb(91, 111, 241);
-  border: 2pt solid rgb(91, 111, 241);
+.btn.primary, .btn.primary:hover {
+  background-color: #007bff;
+  border: 2pt solid #007bff;
   color: white;
 }
 
-html.dark button.btn {
+html.dark .btn {
   background-color: rgb(40, 40, 40);
   border: 2pt solid rgb(40, 40, 40);
 }
 
-html.dark button.btn:hover {
+html.dark .btn:hover {
   border: 2pt solid rgb(60, 60, 60);
 }
 
-html.dark button.btn.primary, html.dark button.btn.primary:hover {
-  background-color: rgb(91, 111, 241);
-  border: 2pt solid rgb(91, 111, 241);
+html.dark .btn.primary, html.dark .btn.primary:hover {
+  background-color: #007bff;
+  border: 2pt solid #007bff;
   color: white;
 }
 
@@ -109,7 +109,7 @@ html.dark button.btn.primary, html.dark button.btn.primary:hover {
     font-size: 1.2em;
   }
   .hero {
-    margin: 10pt 0pt !important;
+    margin: 70pt 0pt !important;
     align-items: flex-start !important;
   }
 
