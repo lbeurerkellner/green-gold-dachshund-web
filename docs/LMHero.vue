@@ -51,7 +51,7 @@ html.dark h2 {
 .hero {
   margin: auto;
   display: flex;
-  margin-top: 70pt;
+  margin-top: 50pt;
   width: 100%;
   max-width: 650pt;
   text-align: left;
@@ -103,10 +103,10 @@ html.dark .btn.primary, html.dark .btn.primary:hover {
 
 @media (max-width: 600px) {
   .hero h1 {
-    font-size: 1.5em;
+    font-size: 2.0em;
   }
   .hero h2 {
-    font-size: 1.2em;
+    font-size: 1.4em;
   }
   .hero {
     margin: 70pt 0pt !important;
@@ -129,9 +129,13 @@ html.dark .btn.primary, html.dark .btn.primary:hover {
     padding: 0;
     position: relative;
     height: 1em;
-    top: 2.5pt;
+    top: 3.5pt;
     margin-right: -5pt;
     margin-left: -8pt;
+  }
+
+  .hero {
+    margin-top: 20pt !important;
   }
 }
 </style>

@@ -191,16 +191,12 @@ pre code {
   color: #c678dd;
 }
 
-.lmql-fct, .highlight .n {
-  color: #E5C07B;
-}
-
-.lmql-comment, .highlight .c1 {
-  color: #5c6370;
-}
-
 .hljs-placeholder {
   color: #68edf2;
+}
+
+.hljs-subst {
+  color: #f4955d;
 }
 
 html.dark .promptdown.promptdown-compiled, .promptdown.promptdown-compiled {
@@ -278,6 +274,7 @@ div.subtitle {
 .VPDoc:not(.has-sidebar):not(.has-aside) h1 {
   font-size: 2.5rem;
 }
+
 .VPDoc:not(.has-sidebar):not(.has-aside) .content {
   max-width: 830pt !important; /* <-- update your values */
 }
@@ -286,7 +283,19 @@ div.subtitle {
   max-width: 830pt !important;
 }
 
-p strong {
+.VPDoc:not(.has-sidebar) .content {
+  max-width: 1130pt !important; /* <-- update your values */
+}
+
+.VPDoc:not(.has-sidebar) .content .content-container {
+  max-width: 830pt
+}
+
+.VPDoc:not(.has-sidebar) .container {
+  max-width: 1130pt !important;
+}
+
+html.dark p strong {
   font-weight: 1200;
   text-decoration: underline;
 }
@@ -299,4 +308,116 @@ span.date {
   font-size: 0.8em;
   color: grey;
   display: block;
+}
+
+pre.promptdown, pre.promptdown.promptdown-compiled {
+  /* first line indent */
+  text-indent: 0pt !important;
+  line-height: 1.2em !important;
+}
+
+.banner {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  padding: 2pt 5pt;
+  border-radius: 2pt;
+  max-width: calc(100vw - 40pt);
+  margin: auto;
+  width: 730pt;
+  position: relative;
+  bottom: -20pt;
+}
+
+@media (max-width: 800px) {
+  .banner {
+    margin-left: 5pt;
+    max-width: calc(100vw - 20pt);
+  }
+}
+
+.banner a {
+  text-decoration: underline;
+}
+
+pre .window-controls {
+  margin-bottom: 10pt;
+  margin-left: -10pt;
+  margin-top: -5pt;
+}
+
+pre {
+  position: relative;
+}
+
+pre .window-controls .window-control {
+  background: white;
+  width: 10pt;
+  height: 10pt;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5pt;
+}
+
+pre .window-controls .window-control:nth-child(1) {
+  background: #ff5f56;
+}
+
+pre .window-controls .window-control:nth-child(2) {
+  background: #ffbd2e;
+}
+
+pre .window-controls .window-control:nth-child(3) {
+  background: #27c93f;
+}
+
+html.dark .language-grammar, .language-grammar,
+html.dark .language-grammar pre.hljs, .language-grammar pre.hljs {
+  background-color: transparent !important;
+  background: none !important;
+  color: var(--vp-c-text-1) !important;
+  font-size: 14pt;
+  margin: 0 !important;
+  margin-left: -20pt;
+  white-space: pre-wrap;
+}
+
+.language-grammar pre code {
+  color: var(--vp-c-text-1) !important;
+  white-space: pre-wrap !important; 
+  margin: 0 !important;
+  margin-left: -15pt !important;
+}
+
+
+.language-grammar .hljs-comment {
+  opacity: 0.6;
+  color: var(--vp-c-text-1);
+}
+
+.language-grammar .hljs-string {
+  color: var(--vp-c-text-1);
+  color: var(--vp-c-danger-1);
+}
+
+.language-grammar .hljs-meta {
+  color: var(--vp-c-text-1);
+}
+
+.language-grammar .hljs-built_in, .language-grammar .hljs-keyword {
+  color: var(--vp-c-text-1);
+  font-weight: bold;
+}
+
+.language-grammar .hljs-placeholder {
+  color: var(--vp-c-text-1);
+}
+
+.language-grammar .hljs-subst {
+  color: var(--vp-c-text-1);
+}
+
+.language-grammar a[href^="#python-fragments"] {
+    text-decoration: none;
+    color: var(--vp-c-text-2);
 }

@@ -7,6 +7,8 @@ export default createContentLoader('features/*.md', {
   render: true,
   excerpt: true,
   async transform(rawData) {
+    rawData = rawData.filter(page => !page.url.split('/').pop().startsWith('_'))
+
     let r = await rawData.map(async (page) => {
         // split on '<div class="language-'
         let description = page.src.split('%SPLIT%')[0]

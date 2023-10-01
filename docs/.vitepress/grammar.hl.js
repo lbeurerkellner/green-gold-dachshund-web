@@ -9,60 +9,7 @@ export default function(hljs) {
     const regex = hljs.regex;
     const IDENT_RE = /[\p{XID_Start}_]\p{XID_Continue}*/u;
     const RESERVED_WORDS = [
-      'and',
-      'as',
-      'assert',
-      'async',
-      'await',
-      'break',
-      'case',
-      'class',
-      'continue',
-      'def',
-      'del',
-      'elif',
-      'else',
-      'except',
-      'finally',
-      'for',
-      'from',
-      'global',
-      'if',
-      'import',
-      'in',
-      'is',
-      'lambda',
-      'match',
-      'nonlocal|10',
-      'not',
-      'or',
-      'pass',
-      'raise',
-      'return',
-      'try',
-      'while',
-      'with',
-      'yield',
-      "BEAM",
-      "beam",
-      "ARGMAX",
-      "argmax",
-      "SAMPLE",
-      "incontext",
-      "BEST_K",
-      "best_k",
-      "BEAM_VAR",
-      "beam_var",
-      "VAR",
-      "var",
-      "sample",
-      "FROM",
-      "from",
-      "WHERE",
-      "where",
-      "DISTRIBUTION",
-      "distribution",
-      '@lmql.query'
+      ':='
     ];
   
     const BUILT_INS = [
@@ -461,12 +408,16 @@ export default function(hljs) {
           begin: /\bself\b/
         },
         {
+          // question mark op
+          begin: /\?|:=/,
+          className: 'keyword'
+        },
+        {
           // eat "if" prior to string so that it won't accidentally be
           // labeled as an f-string
           beginKeywords: "if",
           relevance: 0
         },
-        LMQL_STRING,
         STRING,
         COMMENT_TYPE,
         hljs.HASH_COMMENT_MODE,

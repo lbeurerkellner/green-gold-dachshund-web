@@ -4,7 +4,7 @@ template: side-by-side
 new: true
 ---
 
-LMQL now supports nested queries, allowing you to modularize and re-use query code across your applications.
+LMQL now supports nested queries, enabling modularized local instructions and re-use of prompt components.
 
 <br/>
 

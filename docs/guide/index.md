@@ -1,6 +1,6 @@
 # Getting Started
 
-Learn how to get started with LMQL, by writing your first query.
+Learn how to get started with LMQL and write your first program.
 
 ## 1. Installation
 

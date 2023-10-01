@@ -59,6 +59,10 @@ defineProps(['template', 'new'])
     animation-fill-mode: forwards;
 }
 
+.feature.code {
+    display: flex;
+}
+
 </style>
 <style>
 .feature .btn {
@@ -104,9 +108,11 @@ div:nth-child(even)>.feature>code {
     animation-fill-mode: forwards;
 }
 
-.feature pre.promptdown {
-    min-width: 390pt;
-    width: 390pt;
+.feature pre.promptdown,
+.feature pre.promptdown.promptdown-compiled {
+    width: 320pt;
+    max-width: calc(50vw - 30pt);
+    overflow-x: scroll;
     min-height: 180pt;
     position: relative;
     top: 20pt;
@@ -146,7 +152,7 @@ div:nth-child(even)>.feature>code {
     margin-bottom: 40pt;
 }
 
-.cards>div {
+.cards>a {
     border-radius: 5pt;
     border: 1pt solid rgb(192, 190, 190);
     margin: 0pt 2.5pt;
@@ -156,18 +162,34 @@ div:nth-child(even)>.feature>code {
     width: 100pt;
     height: 100pt;
     margin-top: 5pt;
+    transition: all 0.1s;
+    cursor: pointer;
+    text-align: center;
 }
 
-.cards>div img {
+.cards>a:hover {
+    background-color: rgb(240, 240, 240);
+    transform: scale(1.05);
+}
+
+html.dark .cards>a {
+    border: 1pt solid rgb(50, 50, 50);
+}
+
+html.dark .cards>a:hover {
+    background-color: rgba(50, 50, 50, 0.106);
+}
+
+.cards>a img {
     width: 50pt;
-    height: 60pt;
+    height: 40pt;
     margin: auto;
     display: block;
-    margin-top: -20pt;
+    margin-top: -10pt;
     padding-bottom: 10pt;
 }
 
-.cards>div h1 {
+.cards>a h1 {
     font-weight: bold !important;
     font-size: 10pt;
 }
@@ -178,7 +200,7 @@ div:nth-child(even)>.feature>code {
     padding: 10pt;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .feature {
         flex-direction: column !important;
         margin-top: 20pt !important;
@@ -212,5 +234,53 @@ div:nth-child(even)>.feature>code {
         margin-left: 20pt;
         text-align: left;
     }
+
+    .feature pre.promptdown,
+    .feature pre.promptdown.promptdown-compiled {
+        width: auto;
+        max-width: 100vw;
+    }
 }
+
+.feature.code pre {
+    flex: 1;
+    margin: 0pt;
+    padding: 20pt;
+    white-space: pre-wrap;
+
+    box-shadow: 0pt 0pt 120pt rgba(0, 0, 0, 0.156);
+}
+
+.feature.code>code {
+    display: none;
+}
+
+.feature.code>div:first-child {
+    margin-right: 0;
+}
+
+.feature.code a {
+    text-decoration: underline;
+}
+
+.feature.code {
+    margin-top: 10pt;
+    max-width: 480pt;
+}
+
+@media (max-width: 800px) {
+    .feature.code {
+        margin-top: -30pt !important;
+        font-size: 10pt;
+        width: calc(100vw + 20pt) !important;
+        margin-left: -15pt;
+    }
+}
+
+@media (max-width: 600px) {
+    .feature.code {
+        margin-top: -90pt !important;
+    }
+}
+
 </style>

@@ -101,9 +101,7 @@ In the example above, we use the `@screaming` decorator to convert the value of 
 
 ## Documentation Update
 
-Many chapters of the LMQL documentation have also been updated and extended and now include more examples and explanations. Further, we have updated the visual design of the documentation to make it easier to read and navigate. 
-
-You can find the updated documentation [here](https://docs.lmql.ai).
+The website and many chapters of the LMQL documentation have also been updated and extended and now include more examples and explanations. Further, we have updated the visual design to make it easier to read and navigate. 
 
 ## Preview Features
 

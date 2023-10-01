@@ -6,6 +6,7 @@ export default createContentLoader('features/examples/*.md', {
   includeSrc: true,
   render: true,
   excerpt: true,
+  watch: "features/examples/*.md",
   async transform(rawData) {
     let r = await rawData.map(async (page, i) => {
       // split on '<div class="language-'
@@ -19,18 +20,21 @@ export default createContentLoader('features/examples/*.md', {
         config.site.base,
         config.logger
       )
+
       description = md.render(description)
       code_snippet = code_snippet ? md.render(code_snippet) : "";
       output = output ? md.render(output) : "";
 
       return {
         id: i,
+        path: page.url,
         title: page.frontmatter.title,
         description: description,
         code: code_snippet,
         output: output,
       }
-    })
+    });
+    
     return Promise.all(r)
   }
 })

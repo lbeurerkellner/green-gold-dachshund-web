@@ -11,6 +11,8 @@ import { data as examples } from './features/examples/examples.data.js'
 import LMExamples from './LMExamples.vue'
 </script>
 
+<div class="banner">LMQL 0.7 is now available. <a href="blog/">Read the announcement post</a> to learn more about this release.</div>
+
 <LMHero>
   <template v-slot:title>LMQL is a programming language for LLMs.</template>
   <template v-slot:subtitle>Robust and modular LLM prompting using <b>types, templates, constraints and an optimizing runtime.</b></template>
@@ -37,4 +39,7 @@ import LMExamples from './LMExamples.vue'
   </LMFeature>
 </div>
 
-<LMExamples v-bind:header="true"/>
+<LMExamples>
+  <template v-slot:title>Explore LMQL</template>
+  <template v-slot:description>LMQL is a versatile tool for leveraging the full potential of LLMs. Here are some examples of what you can do with it:</template>
+</LMExamples>

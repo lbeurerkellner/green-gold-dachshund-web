@@ -45,6 +45,10 @@
         flex-direction: column;
     }
 
+    .code-by-code .left pre {
+        font-size: 11pt;
+    }
+
     .code-by-code .left, .code-by-code .right {
         max-width: 100%;
         width: 100vw;
