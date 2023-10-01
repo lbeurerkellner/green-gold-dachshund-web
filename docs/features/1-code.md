@@ -30,7 +30,8 @@ Created by the [SRI Lab](http://sri.inf.ethz.ch/) @ ETH Zurich and [contributors
 
 <br/>
 
-<iframe src="https://ghbtns.com/github-btn.html?user=eth-sri&repo=lmql&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
-
+<div class="github-star">
+    <a class="github-button" href="https://github.com/eth-sri/lmql" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true" aria-label="Star LMQL on GitHub">Star</a>
+</div>
 
 </center>

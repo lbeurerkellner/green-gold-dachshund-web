@@ -1,7 +1,7 @@
 ---
 title: Nested Queries bring Procedural Programming to Prompting
 template: side-by-side
-new: true
+new: 0.7
 ---
 
 LMQL now supports nested queries, enabling modularized local instructions and re-use of prompt components.

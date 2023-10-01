@@ -16,6 +16,13 @@ export default defineConfig({
         src: "/promptdown.js"
       }
     ],
+    [
+      "script",
+      {
+        async: true,
+        src: "https://buttons.github.io/buttons.js"
+      }
+    ]
 
   ],
   themeConfig: {
@@ -25,7 +32,7 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/', activeMatch: '^/blog/' },
       { text: 'Research', link: '/research/index.html' },
       { text: 'Docs', link: '/guide/', activeMatch: '^/guide/' },
-      { text: 'Playground', link: 'https://lmql.ai/playground'},
+      { text: '▶ Playground', link: 'https://lmql.ai/playground'},
     ],
     logo: '/lmql.svg',
     sidebar: {

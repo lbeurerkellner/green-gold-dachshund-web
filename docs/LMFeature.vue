@@ -248,8 +248,9 @@ html.dark .cards>a:hover {
     padding: 20pt;
     white-space: pre-wrap;
 
-    box-shadow: 0pt 0pt 120pt rgba(0, 0, 0, 0.156);
+    box-shadow: 0pt 0pt 80pt rgba(0, 0, 0, 0.126);
 }
+
 
 .feature.code>code {
     display: none;
