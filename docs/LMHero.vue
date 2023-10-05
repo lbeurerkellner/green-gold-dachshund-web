@@ -8,12 +8,14 @@
     <h2 class="tagline">
       <slot name="subtitle"></slot>
     </h2>
+    <div class="buttons">
     <a class="primary btn" href="/guide/">
       Get Started
     </a>
-    <button class="btn" onclick="window.open('https://github.com/eth-sri/lmql#contribute')">
+    <a class="btn" href="https://github.com/eth-sri/lmql#contribute')">
       Contribute
-    </button> 
+    </a> 
+    </div>
     </div>
   </div>
 </template>
@@ -66,26 +68,6 @@ html.dark h2 {
 
 </style>
 <style>
-.btn {
-  padding: 4pt 10pt;
-  font-size: 1.0em;
-  background-color: rgb(220, 220, 220);
-  border-radius: 4pt;
-  font-weight: bold;
-  margin: 20pt 5pt 5pt 0pt;
-  border: 2pt solid rgb(220, 220, 220);
-}
-
-.btn:hover {
-  border: 2pt solid rgb(192, 190, 190);
-}
-
-.btn.primary, .btn.primary:hover {
-  background-color: #007bff;
-  border: 2pt solid #007bff;
-  color: white;
-}
-
 html.dark .btn {
   background-color: rgb(40, 40, 40);
   border: 2pt solid rgb(40, 40, 40);
@@ -137,5 +119,8 @@ html.dark .btn.primary, html.dark .btn.primary:hover {
   .hero {
     margin-top: 20pt !important;
   }
+}
+.buttons {
+  margin-top: 20pt;
 }
 </style>

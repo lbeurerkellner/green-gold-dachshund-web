@@ -34,6 +34,9 @@ export default defineConfig({
       { text: 'Docs', link: '/guide/', activeMatch: '^/guide/' },
       { text: '▶ Playground', link: 'https://lmql.ai/playground'},
     ],
+    search: {
+      provider: 'local'
+    },
     logo: '/lmql.svg',
     sidebar: {
       '/reference': [
@@ -90,28 +93,99 @@ export default defineConfig({
   },
   markdown: {
     defaultHighlightLang: 'lmql',
-    highlight: highlight,
-    mpa: true
-  },
+    highlight: highlight
+  }
 })
 
-function sidebar(folder) {
-  const files = fs.readdirSync(path.resolve(__dirname, '../' + folder))
-  const sidebar = []
+function frontmatter(content) {
+  // parse frontmatter
+  let fm = {}
+  let lines = content.split("\n")
+  if (lines[0].trim() == "---") {
+    lines.shift()
+    let line = lines.shift()
+    while (line.trim() != "---") {
+      let parts = line.split(":")
+      let key = parts.shift().trim()
+      let value = parts.join(":").trim()
+      fm[key] = value
+      line = lines.shift()
+    }
+  }
+  return fm
+}
 
-  files.forEach(file => {
-    // check if file is markdown
-    if (!file.endsWith('.md')) return
+function sidebar(folder, subdir="") {
+  let files = fs.readdirSync(path.resolve(__dirname, '../' + folder))
+  const sidebars = []
 
+  // index.md should be the first element
+  const index = files.indexOf('index.md')
+  if (index > -1) {
+    const indexFile = files.splice(index, 1)[0]
+    files.unshift(indexFile)
+  }
+
+  files = files.filter(file => file.endsWith('.md'))
+  
+  files = files.map(file => {
+    let p = path.resolve(__dirname, `../${folder}/${file}`)
+    const content = fs.readFileSync(p, 'utf-8')
+    let fm = frontmatter(content)
+    
     // find first # title
-    const content = fs.readFileSync(path.resolve(__dirname, `../${folder}/${file}`), 'utf-8')
     const name = content.match(/# (.*)/)[1]
 
-    sidebar.push({
-      text: name,
-      link: `/${file}`
-    })
-  }
-  )
-  return sidebar
+    if (fm.order) {
+      try {
+        fm.order = parseInt(fm.order)
+      } catch (e) {
+        console.log(`Error parsing order for ${file}`)
+      }
+    } else {
+      fm.order = 9999;
+    }
+
+    return {
+      name: name,
+      file: file,
+      frontmatter: fm
+    }
+  });
+
+  // sort by frontmatter.order
+  files.sort((a, b) => {
+    return a.frontmatter.order - b.frontmatter.order
+  })
+
+  files.forEach(file_info => {
+    let file = file_info.file;
+    let name = file_info.name
+
+    let base = file.replace('.md', '') + "/"
+    let base_path = folder + "/" + base
+    
+    let items = []
+
+    // check for base_path 
+    if (fs.existsSync(path.resolve(__dirname, `../${base_path}`))) {
+      items = sidebar(base_path, base)
+      
+      sidebars.push({
+        text: name,
+        link: `/${file}`,
+        activeMatch: `^/${subdir}${base_path}`,
+        collapsable: true,
+        collapsed: true,
+        items: items
+      })
+    } else {
+      sidebars.push({
+        text: name,
+        link: `/${subdir}${file}`
+      })
+    }
+  })
+
+  return sidebars
 }

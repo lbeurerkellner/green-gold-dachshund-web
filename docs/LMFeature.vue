@@ -61,6 +61,7 @@ defineProps(['template', 'new'])
 
 .feature.code {
     display: flex;
+    margin-top: -20pt;
 }
 
 </style>
@@ -158,6 +159,10 @@ div:nth-child(even)>.feature>code {
     margin: 0pt 2.5pt;
     padding: 10pt;
     padding-top: 30pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    line-height: 1.2;
     font-weight: bold;
     width: 100pt;
     height: 100pt;
@@ -165,6 +170,15 @@ div:nth-child(even)>.feature>code {
     transition: all 0.1s;
     cursor: pointer;
     text-align: center;
+}
+
+.cards img {
+    position: relative;
+    bottom: -5pt;
+}
+
+.cards h1 {
+    margin-top: 0pt;
 }
 
 .cards>a:hover {
@@ -248,7 +262,7 @@ html.dark .cards>a:hover {
     padding: 20pt;
     white-space: pre-wrap;
 
-    box-shadow: 0pt 0pt 80pt rgba(0, 0, 0, 0.126);
+    box-shadow: 0pt 0pt 80pt rgba(0, 0, 0, 0.272);
 }
 
 
@@ -267,14 +281,14 @@ html.dark .cards>a:hover {
 .feature.code {
     margin-top: 10pt;
     max-width: 480pt;
+    font-size: 12pt;
+    line-height: 1.4;
 }
 
 @media (max-width: 800px) {
     .feature.code {
         margin-top: -30pt !important;
-        font-size: 10pt;
-        width: calc(100vw + 20pt) !important;
-        margin-left: -15pt;
+        font-size: 11pt;
     }
 }
 

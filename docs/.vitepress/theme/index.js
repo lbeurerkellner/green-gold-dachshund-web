@@ -16,7 +16,6 @@ export default {
     let plugin = {
       install(app) {
         app.config.globalProperties.$pd = pd
-        // on each route change
       }
     }
     app.use(plugin)

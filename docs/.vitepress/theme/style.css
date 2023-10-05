@@ -164,15 +164,18 @@ html.dark img.invert {
   filter: invert(10%);
 }
 
-/* syntax highlighting */
-
-pre {
-  background: var(--vp-code-block-bg) !important;
-  border-radius: 4pt !important;
-}
-
 pre code {
   color: rgba(255, 255, 255, 0.874) !important;
+}
+
+pre, .vp-doc div[class*='language-'], .vp-block {
+  background: var(--vp-code-block-bg) !important;
+  /* --vp-code-block-bg: rgb(240, 240, 240); */
+}
+
+html.dark pre, html.dark .vp-doc div[class*='language-'], .vp-block {
+  background: var(--vp-code-block-bg) !important;
+  /* --vp-code-block-bg: rgb(45, 45, 45); */
 }
 
 .hljs-comment {
@@ -228,14 +231,19 @@ pre.promptdown>h1 {
 .language-promptdown .promptdown button.promptdown-button-replay {
   top: 8pt;
   right: 8pt;
+  border-radius: 15pt;
 }
 
 .language-promptdown {
-  background: none !important;
+  --vp-code-block-bg: none;
   border-radius: 0 !important;
   /* transform: scale(0.98); */
   transform-origin: top center;
   text-align: left;
+}
+
+pre {
+  border-radius: 6pt;
 }
 
 h1 {
@@ -373,6 +381,7 @@ pre .window-controls .window-control:nth-child(3) {
 
 html.dark .language-grammar, .language-grammar,
 html.dark .language-grammar pre.hljs, .language-grammar pre.hljs {
+  --vp-code-block-bg: none;
   background-color: transparent !important;
   background: none !important;
   color: var(--vp-c-text-1) !important;
@@ -423,7 +432,6 @@ html.dark .language-grammar pre.hljs, .language-grammar pre.hljs {
 }
 
 .language-grammar {
-
   --vp-code-copy-code-border-color: var(--vp-c-divider);
   --vp-code-copy-code-bg: var(--vp-c-bg-soft);
   --vp-code-copy-code-hover-border-color: var(--vp-c-divider);
@@ -433,4 +441,182 @@ html.dark .language-grammar pre.hljs, .language-grammar pre.hljs {
 
 .github-star {
   transform: scale(1.3) !important;
+}
+
+.language-lmql .inline-lmql-delim {
+  opacity: 0.2;
+}
+
+.language-truncated {
+  max-height: 200pt; 
+  overflow: hidden;
+}
+
+.info.show .language-truncated {
+  max-height: none;
+}
+
+.info.show button.btn.expand {
+  display: none;
+}
+
+html.dark .info button.btn.expand {
+  background-color: var(--vp-c-gray-soft);
+  border-color: var(--vp-c-gray-soft);
+}
+
+html.dark .info button.btn.expand:hover {
+  border-color: var(--vp-c-gray-2);
+}
+
+.info button.btn.expand {
+  text-align: center;
+  width: 100%;
+  font-size: 10pt;
+  font-weight: bold;
+  margin-top: 0pt;
+}
+
+.language-output::before {
+  content: "Console Output";
+  font-size: 10pt;
+  font-weight: bold;
+  opacity: 0.4;
+  text-align: right;
+  position: absolute;
+  display: block;
+  top: 2pt;
+  right: 5pt;
+  margin-bottom: -2em;
+}
+
+.language-result::before {
+  content: "Result";
+  font-size: 10pt;
+  font-weight: bold;
+  opacity: 0.4;
+  text-align: right;
+  position: absolute;
+  top: 2pt;
+  right: 8pt;
+  margin-bottom: -2em;
+}
+
+.language-output {
+  border: 0.5pt solid rgb(204, 201, 201);
+}
+
+.language-output, .language-result {
+  white-space: pre-wrap !important;
+  color: var(--vp-c-text-1);
+  --vp-code-block-bg: transparent !important;
+  transform: scale(0.98);
+  position: relative;
+  border-radius: 7pt !important;
+
+  --vp-code-copy-code-border-color: var(--vp-c-divider);
+  --vp-code-copy-code-bg: var(--vp-c-bg-soft);
+  --vp-code-copy-code-hover-border-color: var(--vp-c-divider);
+  --vp-code-copy-code-hover-bg: var(--vp-c-bg);
+  --vp-code-copy-code-active-text: var(--vp-c-text-2);
+}
+
+.language-output button.copy, .language-result button.copy {
+  display: none;
+}
+
+.language-result {
+  --vp-code-block-bg: rgba(202, 202, 202, 0.061) !important;
+}
+
+.language-output pre code,
+.language-output pre,
+.language-output .hljs-comment,
+.language-output .hljs-string,
+.language-output .hljs-meta,
+.language-output .hljs-built_in,
+.language-output .hljs-keyword,
+.language-output .hljs-placeholder,
+.language-output .hljs-subst,
+.language-result pre code,
+.language-result pre,
+.language-result .hljs-comment,
+.language-result .hljs-string,
+.language-result .hljs-meta,
+.language-result .hljs-built_in,
+.language-result .hljs-keyword,
+.language-result .hljs-placeholder,
+.language-result .hljs-subst {
+  color: var(--vp-c-text-1) !important;
+  white-space: pre-wrap !important;
+}
+
+img.inline-logo {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  top: 0.15em;
+  left: 0.1em;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12pt;
+}
+
+.grid-item-card {
+  flex: 1 1 200pt;
+  margin: 5pt;
+  border-radius: 6pt;
+  overflow: hidden;
+  border: 0.5pt solid rgba(204, 201, 201, 0.732);
+  background: transparent;
+  position: relative;
+  padding: 10pt;
+  font-size: 12pt;
+  max-width: 48%;
+}
+
+.grid-item-card h3 {
+  font-size: 12pt;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-item-card a {
+  text-decoration: none;
+  color: var(--vp-c-text-1);
+  transition-duration: 0.1s !important;
+}
+
+.grid-item-card a p {
+  margin: 0;
+  margin-top: 5pt;
+  font-size: 12pt;
+  font-weight: normal;
+}
+
+.btn {
+  padding: 4pt 10pt;
+  font-size: 1.0em;
+  background-color: rgb(220, 220, 220);
+  border-radius: 4pt;
+  font-weight: bold;
+  margin: 20pt 5pt 5pt 0pt;
+  border: 2pt solid rgb(220, 220, 220);
+}
+
+.btn:hover {
+  border: 2pt solid rgb(192, 190, 190);
+}
+
+.btn.primary, .btn.primary:hover {
+  background-color: #007bff;
+  border: 2pt solid #007bff;
+  color: white;
+}
+
+figure img {
+  border-radius: 4pt;
 }

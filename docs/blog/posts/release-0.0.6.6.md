@@ -21,6 +21,6 @@ greet(a="Alice", b="Bob") # Greet Alice and Bob: Hello!
 
 * Added backend support for `auto_gptq` quantized models, contributed by community member [@meditans](https://github.com/meditans).
 
-* We fixed an issue where for Azure OpenAI models, a dummy configuration `api.env` was needed. See [this issue]() and our [documentation](https://docs.lmql.ai/en/stable/language/azure.html) for details. Thanks to community members Missing and [@hooman-bayer](https://github.com/hooman-bayer) for their feedback and contributions to this.
+* We fixed an issue where for Azure OpenAI models, a dummy configuration `api.env` was needed. See our [documentation](../../guide/models/azure.md) for details. Thanks to community members Missing and [@hooman-bayer](https://github.com/hooman-bayer) for their feedback and contributions to this.
 
 > **Versioning Note**: 0.0.6.6 is the last release with two leading zeros. Starting with the next release, LMQL will adopt semantic versioning and use a single leading zero, i.e. 0.6.7.

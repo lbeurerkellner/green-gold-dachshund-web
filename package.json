@@ -6,14 +6,17 @@
   "type": "module",
   "dependencies": {
     "highlight.js": "^11.8.0",
-    "promptdown": "../promptdown"
+    "promptdown": "../promptdown",
+    "terminal-codes-to-html": "^0.0.1"
   },
   "devDependencies": {
+    "concurrently": "*",
+    "onchange": "*",
     "vitepress": "^1.0.0-rc.10"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:dev": "concurrently 'onchange docs/**/*.ipynb docs/.vitepress/notebooks.js -- node docs/.vitepress/notebooks.js docs' 'vitepress dev docs'",
+    "docs:build": "node docs/.vitepress/notebooks.js docs && vitepress build docs",
     "docs:preview": "vitepress preview docs"
   }
 }

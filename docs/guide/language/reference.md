@@ -2,12 +2,13 @@
 sidebar: false
 aside: true
 prev: false
+order: 100000
 outline: [2,3,4]
 ---
 
 # Language Reference
 
-<div class="subtitle">Systematic guidance for writing and understanding LMQL's syntax and semantics.</div>
+<div class="subtitle">LMQL's core syntax and semantics.</div>
 
 ::: tip
 This document is a **work-in-progress effort** to provide a more formal description of LMQL, mainly discussing the syntactic form and corresponding semantics. Please feel free to reach out to the core team if you have any questions or suggestions for improvement.
@@ -15,7 +16,7 @@ This document is a **work-in-progress effort** to provide a more formal descript
 
 ## Origins and Motivation
 
-LMQL is a programming language for *LLM programming*. More specifically, the general goal of LMQL is to provide a simple, yet powerful interface to implement (multi-part) reasoning flows that interact with LLMs in complex and algorithmically controlled ways. 
+LMQL is a programming language for *LLM programming*. The primary design objective for LMQL is to provide a simple, yet powerful interface to implement (multi-part) reasoning flows that interact with LLMs in complex and algorithmically controlled ways. 
 
 At the core of LMQL, the following components are of particular importance to achieve this goal:
 
@@ -25,7 +26,7 @@ At the core of LMQL, the following components are of particular importance to ac
 
 * A **vendor-agnostic** abstraction over optimized and parallelized **LLM inference**.
 
-The overall goal is to provide a fast and reliable toolchain that facilitates LLM-powered reasoning and applications across domains. This includes simple, already existing use-cases, such as simple chat applications and data parsing, but also extends to more complex applications such as autonomous agents, large-scale data processing, and programmatic reasoning and planning.
+The overall goal is to provide a fast and reliable toolchain that facilitates LLM-powered reasoning and applications across domains. This includes already existing use-cases, such as simple chat applications and data parsing, but also extends to more complex applications such as autonomous agents, large-scale data processing, and programmatic reasoning and planning.
 
 ## Using LMQL
 
@@ -36,6 +37,8 @@ LMQL's [current reference implementation](#reference-implementation) is written 
 * LMQL is available as a Python library, with the `lmql.query` function offering a simple way to use LMQL directly from within Python. For more information, please refer to the [Python API](#python-api) section.
 
 * The `lmql run` CLI tool can used to run LMQL programs directly from the command line.
+
+For more information and example-based discussion on how to use LMQL, please refer to the [Getting Started](../index.md) guide.
 
 ## Syntax
 
@@ -89,7 +92,7 @@ LMQL's modern syntax can be read as standard Python code, with the addition of o
                  # query strings with inline constraints
                  [<QUERY_STRING>](query-strings) 'where' [<CONSTRAINT_EXPR>](constraints) |
                  # query strings with distribution clause
-                 [<QUERY_STRING>](query-strings) 'distribution' [<DISTRIBUTION_EXPR>](distribution-expr) |
+                 [<QUERY_STRING>](query-strings) 'distribution' [<DISTRIBUTION_EXPR>](distribution-clauses)) |
 
 [<QUERY_STRING>](query-strings) := [<...>](query-strings)
 
@@ -148,7 +151,7 @@ The standalone query syntax is less flexible than the modern syntax variant and 
 ```grammar
 <STANDALONE_QUERY> := [ [<DECODER>](decoder-clause) [ '(' [<python.KeywordArguments>](python-fragments) ')' ]? ]? 
                         <PROMPT>
-                     [ 'from' [<MODEL_EXPR>](model-expr) ]?
+                     [ 'from' [<MODEL_EXPR>](model-expressions) ]?
                      [ 'where' [<CONSTRAINT_EXPR>](constraints) ]?
                      [ 'distribution' [<DISTRIBUTION_EXPR>](distribution-expr) ]?
 
@@ -159,7 +162,7 @@ The standalone query syntax is less flexible than the modern syntax variant and 
 
 [<QUERY_STRING>](query-strings) := [<...>](query-strings)
 
-[<MODEL_EXPR>](model-expr) := "lmql.model" "(" [<python.Arguments>](python-fragments) ")" |
+[<MODEL_EXPR>](model-expressions) := "lmql.model" "(" [<python.Arguments>](python-fragments) ")" |
                 [<python.StringLiteral>](python-fragments)
 
 [<CONSTRAINT_EXPR>](constraints) := [<...>](constraints)
@@ -199,6 +202,19 @@ distribution
 ```
 
 :::
+
+### Decoder Clause
+
+```grammar
+DECODER_CLAUSE := [<DECODER>](decoder-clause) [ '(' [<python.KeywordArguments>](python-fragments) ')' ]?
+```
+
+The decoder clause defines the decoding algorithm to be used for generation. It is optional and defaults to `argmax`. 
+
+**Algorithms** `<DECODER>` is one of the runtime-supported decoding algorithms, e.g. `argmax`, `sample`, `beam`, `beam_var`, `var`, `best_k`, or a custom decoder function. For a detailed description please see the [Decoding](../language/decoding.md) documentation chapter.
+
+**Program-Level Decoding** Per query program, only one decoder clause can be specified, i.e. a single decoding algorithm is used to execute all query strings and placeholder variables. This is because decoders act on the program level, and branchingly explore several possible continuations of the program, based on the current program state.
+
 
 ### Query Strings
 
@@ -372,7 +388,7 @@ The token length constraint on `NAME` only applies to generations that are invok
 :::
 #### Types and Tactics
 
-Next to the variable name, a tactic or type like can be specified using the `"[VAR: <tactic>]"` syntax. Syntactically, a tactic expression can be an arbitrary Python expression, however, at runtime, the interpreter expects one of the following:
+Next to the variable name, a tactic or type can be specified using the `"[VAR: <tactic>]"` syntax. Syntactically, a tactic expression can be an arbitrary Python expression, however, at runtime, the interpreter expects one of the following:
 
 * A type reference like `int`, supported by the runtime as [LMQL type expression](#types)
 
@@ -406,18 +422,6 @@ A query string decoded using a [nested query](../language/nestedqueries.md) on t
 
 Query strings are compiled to Python `f-strings` and thus implement regular Python string interpolation semantics using the `"Hello {...}"` syntax, e.g. `"Hello {NAME}"` evaluates to `"Hello Alice"`, given the current program state assigns `NAME = "Alice"`.
 
-### Decoder Clause
-
-```grammar
-DECODER_CLAUSE := [<DECODER>](decoder-clause) [ '(' [<python.KeywordArguments>](python-fragments) ')' ]?
-```
-
-The decoder clause defines the decoding algorithm to be used for generation. It is optional and defaults to `argmax`. 
-
-**Algorithms** `<DECODER>` is one of the runtime-supported decoding algorithms, e.g. `argmax`, `sample`, `beam`, `beam_var`, `var`, `best_k`, or a custom decoder function. For a detailed description please see the [Decoding](../language/decoding.md) documentation chapter.
-
-**Program-Level Decoding** Per query program, only one decoder clause can be specified, i.e. a single decoding algorithm is used to execute all query strings and placeholder variables. This is because decoders act on the program level, and branchingly explore several possible continuations of the program, based on the current program state.
-
 ### Constraints
 
 ```grammar
@@ -431,7 +435,23 @@ The decoder clause defines the decoding algorithm to be used for generation. It 
 TODO
 :::
 
+
+### Model Expressions
+
+```grammar
+<MODEL_EXPR> := "lmql.model" "(" <python.Arguments> ")" |
+                <python.StringLiteral>
+```
+
+::: danger
+TODO
+:::
+
 ### Distribution Clauses
+
+```grammar
+<DISTRIBUTION_EXPR> := <VARIABLE> 'in' [<python.Expr>](python-fragments)
+```
 
 ::: danger
 TODO
@@ -472,7 +492,7 @@ This distinction helps enable expressive prompting, i.e. represent values in a w
 | `str` (default) | String type, e.g. `"hello"`, `"world"`, ... | `str_value` | [`class str`](https://docs.python.org/3/library/stdtypes.html#str) |
 | `int` | Integer type, e.g. `1`, `2`, `3`, ... | `str(int_value)` | [`class int`](https://docs.python.org/3/library/functions.html#int) |
 
-The default type of all placeholder variables is `str`. To change the type of a variable, the type can be specified as part of the placeholder variable declaration, e.g. `[NAME:int]` or `[NAME:float]`, as discussed in the [query strings](#types-and-tactic) section.
+The default type of all placeholder variables is `str`. To change the type of a variable, the type can be specified as part of the placeholder variable declaration, e.g. `[NAME:int]` or `[NAME:float]`, as discussed in the [query strings](#types-and-tactics) section.
 
 ## Query Functions
 
@@ -500,7 +520,7 @@ A query function can be called as a standard function from within LMQL or Python
 
 * `model`: The [`lmql.LLM`](../lib/generations.md#lmql-llm-objects) model reference (or string identifier) to be used for generation.
 * `decoder`: The decoding algorithm to be used for generation. See also the [decoder clause](#decoder-clause) section.
-* `output_writer`: The output writer callback to be used during generation. See also documentation chapter on [output streaming](../lib/output_streaming.md) section.
+* `output_writer`: The output writer callback to be used during generation. See also documentation chapter on [output streaming](../lib/output.html) section.
 * `**kwargs`: Additional keyword arguments, passed to decoder and interpreter, such as `temperature`, `chunksize`, etc.
 
 ## Reference Implementation

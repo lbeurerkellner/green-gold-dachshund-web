@@ -27,6 +27,7 @@ export function highlight(str, lang) {
 
   if (lang == 'lmql') {
     let result = hljs.highlight(str, { language: "lmql", ignoreIllegals: true }).value;
+    result = highlight_inline_lmql_delimiters(result);
     return pre_with_lines(lang, result, params.controls);
   }
 
@@ -75,6 +76,15 @@ export function highlight(str, lang) {
   return pre_with_lines("", result, params.controls);
 }
 
+function highlight_inline_lmql_delimiters(str) {
+  // find '''lmql ... '''\n
+  let re = /(&#x27;&#x27;&#x27;lmql)([\s\S]*?)(&#x27;&#x27;&#x27;)/g;
+  // replace with "REMOVED"
+  str = str.replace(re, "<span class='inline-lmql-delim'>$1</span>$2<span class='inline-lmql-delim'>$3</span>");
+  
+  return str
+}
+
 function pre_with_lines(lang, result, controls = false) {
   let lines = result.split("\n");
   // remove empty lines at start or end
@@ -88,18 +98,18 @@ function pre_with_lines(lang, result, controls = false) {
   // check for window controls
   if (controls) {
     result = '<div class="window-controls"><div class="window-control window-control-close"></div><div class="window-control window-control-minimize"></div><div class="window-control window-control-maximize"></div></div>' + result;
-    console.log(result)
   }
 
-  // check for 'grammar' language
+  // check for 'grammar' language inline links
   result = linkGrammar(result);
+  
+  // unescape {-{
+  result = result.replace(/\{\{/g, "<span v-pre>{{</span>")
 
   return '<pre class="hljs"><code><span class="line">' + result + '</span></code></pre>';
 }
 
 function linkGrammar(s) {
-  console.log(s)
-
   // find markdown links [...](...) and replace them by <a>...</a>
   let re = /\[&lt;([^\]]*)\]\(([^)]*)\)/g;
   let m;

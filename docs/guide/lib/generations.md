@@ -1,3 +1,7 @@
+---
+outline: [2,3]
+---
+
 # Generations API <span class="badge">NEW</span>
 
 <div class="subtitle">A simple Python API for LMQL-based text generation and scoring.</div>
@@ -30,7 +34,7 @@ m.score_sync("Hello", ["World", "Apples", "Oranges"])
 
 The snippet above demonstrates the different components of the Generations API:
 
-- **`lmql.LLM`** At the core of the Generations API are `lmql.LLM` objects. Using the `lmql.model(...)` constructor, you can access a wide range of different models, as described in the [Models](../language/models.rst) chapter. This includes support for models running in the same process, in a separate worker process or cloud-based models available via a API endpoint.
+- **`lmql.LLM`** At the core of the Generations API are `lmql.LLM` objects. Using the `lmql.model(...)` constructor, you can access a wide range of different models, as described in the [Models](../models/index.md) chapter. This includes support for models running in the same process, in a separate worker process or cloud-based models available via a API endpoint.
 
 - [**`lmql.LLM.generate(...)`**](#lmql-generate) is a simple function to generating text completions based on a given prompt. This can be helpful to quickly obtain single-step completions, or to generate a list of completions for a given prompt.
 
@@ -45,7 +49,7 @@ The snippet above demonstrates the different components of the Generations API:
 
 ## `lmql.LLM` Objects
 
-At the core, `lmql.LLM` objects represent a specific language model and provide methods for generation and scoring. An `lmql.LLM` is instantiated using `lmql.model(...)` and can be passed [as-is to LMQL query programs](../language/models.rst#loading-models) or to the top-level [`lmql.generate`](#lmql-generate) and [`lmql.score`](#lmql-score) functions.
+At the core, `lmql.LLM` objects represent a specific language model and provide methods for generation and scoring. An `lmql.LLM` is instantiated using [`lmql.model(...)`](../models/index.md) and can be passed [as-is to LMQL query programs](../models/index.md#loading-models) or to the top-level [`lmql.generate`](#lmql-generate) and [`lmql.score`](#lmql-score) functions.
 
 ### `LLM.generate(...)`
 
@@ -65,7 +69,7 @@ Generates a text completion based on a given prompt. Returns the full prompt + c
 
 - `prompt: str`: The prompt to generate from.
 - `max_tokens: Optional[int]`: The maximum number of tokens to generate. If `None`, text is generated until the model returns an *end-of-sequence* token.
-- `decoder: str`: The [decoding algorithm](../language/decoders.md) to use for generation. Defaults to `"argmax"`.
+- `decoder: str`: The [decoding algorithm](../language/decoding.md) to use for generation. Defaults to `"argmax"`.
 - `**kwargs`: Additional keyword arguments that are passed to the underlying LMQL query program. These can be useful to specify options like `chunksize`, decoder arguments like `n`, or any other model or decoder-specific arguments.
 
 **Return Value** The function returns a string or a list of strings, depending on the decoder in use (`decoder=argmax` yields a single sequence, `decoder="sample", n=2` yields two sequences, etc.).
@@ -111,11 +115,12 @@ def score_sync(self, *args, **kwargs)
 
 Synchronous version of [`lmql.LLM.score`](#llm-score).
 
+## Top-Level Functions
 
+The Generation API is also available directly in the top-level namespace of the `lmql` module. This allows for direct generation and scoring, 
+without the need to instantiate an `lmql.LLM` object first.
 
-The Generation API is available directly in the top-level namespace of the `lmql` module:
-
-## `lmql.generate(...)`
+### `lmql.generate(...)`
 
 ```python
 async def lmql.generate(
@@ -131,11 +136,11 @@ with the provided `model` instance or model name.
 
 If no `model` is provided, the default model is used. See [`lmql.set_default_model`](#lmql-set_default_model) for more information.
 
-## `lmql.generate_sync(...)`
+### `lmql.generate_sync(...)`
 
 Synchronous version of [`lmql.generate`](#lmql-generate).
 
-## `lmql.score(...)`
+### `lmql.score(...)`
 
 ```python
 async def score(
@@ -151,11 +156,11 @@ with the provided `model` instance or model name.
 
 If no `model` is provided, the default model is used. See [`lmql.set_default_model`](#lmql-set_default_model) for more information.
 
-## `lmql.score_sync(...)`
+### `lmql.score_sync(...)`
 
 Synchronous version of [`lmql.score`](#lmql-score).
 
-## `lmql.set_default_model(...)`
+### `lmql.set_default_model(...)`
 
 ```python
 def set_default_model(model: Union[str, LLM])

@@ -13,7 +13,7 @@ LMQL 0.7 has also moved to [semantic versioning](https://semver.org) with the di
 
 ## Nested Queries for Procedural Prompt Programming
 
-In 0.7, you can now use [Nested Queries](https://docs.lmql.ai/en/latest/language/functions.html) to call an LMQL query as a nested function in the context of another query. For this, LMQL implements procedural programming for prompting. To illustrate, consider the following example:
+In 0.7, you can now use [Nested Queries](../../guide/language/nestedqueries.md) to call an LMQL query as a nested function in the context of another query. For this, LMQL implements procedural programming for prompting. To illustrate, consider the following example:
 
 ```lmql
 # chain of thought prompting strategy
@@ -42,7 +42,7 @@ LMQL transfers these ideas to prompting, inheriting the general benefits of proc
 
 - **Nesting and Reuse** LMQL queries can be nested arbitrarily deep, allowing you to reuse and combine queries modularly. For example, you could define a query `get_year` to extract a year from the response text, and then use this query in `chain_of_thought` to extract the date from the question. By achieving modularity for sub-prompts, nested queries also allow you to reuse prompts across different query programs.
 
-To learn more about nested queries, please refer to the relevant chapter in our [documentation](https://docs.lmql.ai/en/latest/language/functions.html).
+To learn more about nested queries, please refer to the relevant chapter in our [documentation](../../guide/index.md).
 
 ## Generations API
 
@@ -57,17 +57,19 @@ m.generate_sync("Hello", max_tokens=10)
 ```
 <br/>
 
-Functions such as [`LLM.generate`](https://docs.lmql.ai/en/latest/lib/generations.html#llm-generate) and [`LLM.score`](https://docs.lmql.ai/en/latest/lib/generations.html#llm-score) allow you to generate and score text using any LMQL-support inference backend. The Generations API is also seamlessly compatible with standard LMQL, allowing you to switch and combine the two as needed. For more information, please refer to the [documentation](https://docs.lmql.ai/en/latest/lib/generations.html).
+Functions such as [`LLM.generate`](../../guide/lib/generations.html#llm-generate) and [`LLM.score`](../../guide/lib/generations.html#llm-score) allow you to generate and score text using any LMQL-support inference backend. The Generations API is also seamlessly compatible with standard LMQL, allowing you to switch and combine the two as needed. 
+
+For more information, please refer to the [documentation](../../guide/lib/generations.html).
 
 ## Chat 
 
-LMQL 0.7 adds a new [Chat API](https://docs.lmql.ai/en/latest/lib/chat.html), allowing you to easily deploy chatbots with just a couple lines of LMQL.
+LMQL 0.7 adds a new [Chat API](../../guide/lib/chat.md), allowing you to easily deploy chatbots with just a couple lines of LMQL.
 
 <img style="max-width: 80vw; width: 400pt; display: block; margin: auto;" src="https://github.com/eth-sri/lmql/assets/17903049/3f24b964-b9b6-4c50-acaa-b38e54554506"/>
 
 LMQL Chat comes with custom output writers, that allow you to easily stream chatbot input and output over a variety of channels, including WebSockets, HTTP, and SSE. A simple `lmql chat` CLI tool was also added, that allows you to instantly launch your LMQL queries as fully interactive chatbots. 
 
-We also provide documentation resources on how to get started with chatbot development with LMQL, including chapters on Chatbot Serving, Internal Reasoning and Defending against Prompt Injection. For more information, please refer to the [documentation](https://docs.lmql.ai/en/latest/lib/chat.html).
+We also provide documentation resources on how to get started with chatbot development with LMQL, including chapters on Chatbot Serving, Internal Reasoning and Defending against Prompt Injection. For more information, please refer to the [documentation](../../guide/lib/chat.md).
 
 ## Backends
 
@@ -75,13 +77,13 @@ LMQL 0.7 ships with three new backends for inference and tokenization:
 
 * LMQL 0.7 adds support for OpenAI's newly released `gpt-3.5-turbo-instruct` model. In contrast to other 3.5 series models, this variant supports the *Completions API*, which means that LMQL constraints are compatible with it.
 
-* LMQL now supports hosting models on [replicate.com](replicate.com) infrastructure, allowing you to run LMQL models in the cloud. To learn more, please refer to the [documentation](https://docs.lmql.ai/en/latest/language/replicate.html). Thanks a lot to community member [@charles-dyfis-net](https://github.com/charles-dyfis-net) for contributing this!
+* LMQL now supports hosting models on [replicate.com](https://replicate.com) infrastructure, allowing you to run LMQL models in the cloud. To learn more, please refer to the [documentation](../../guide/models/replicate.md). Thanks a lot to community member [@charles-dyfis-net](https://github.com/charles-dyfis-net) for contributing this!
 
-* LMQL added `sentencepiece` as an additional tokenization backend, specifically for `llama.cpp` models. This means, `llama.cpp` models can now be used without requiring `transformers` for tokenization. To learn more, please refer to the [documentation](https://docs.lmql.ai/en/latest/language/llama.html). Thanks a lot to community member [@khushChopra](https://github.com/khushChopra) for contributing this.
+* LMQL added `sentencepiece` as an additional tokenization backend, specifically for `llama.cpp` models. This means, `llama.cpp` models can now be used without requiring `transformers` for tokenization. Thanks a lot to community member [@khushChopra](https://github.com/khushChopra) for contributing this.
 
 ## Decorators
 
-[Variable Decorators](https://docs.lmql.ai/en/latest/language/decorators.html) offer a new and simple way to call custom Python functions as part of the core generation loop in LMQL:
+[Variable Decorators](../../guide/language/decorators.md) offer a new and simple way to call custom Python functions as part of the core generation loop in LMQL:
 
 ```lmql
 def screaming(value):
@@ -96,7 +98,7 @@ Say 'this is a test': [TEST| THIS IS A TEST]
 
 Similar to Python decorators, LMQL decorators are functions that take a variable as input and can wrap and modify its value. 
 
-In the example above, we use the `@screaming` decorator to convert the value of `TEST` to uppercase. Decorators can be used to implement a wide range of custom functionality, including string normalization, datatype conversion, and more. LMQL also provides decorators that allow to stream or pre-process data during generation. For more information, please refer to the [documentation](https://docs.lmql.ai/en/latest/language/decorators.html).
+In the example above, we use the `@screaming` decorator to convert the value of `TEST` to uppercase. Decorators can be used to implement a wide range of custom functionality, including string normalization, datatype conversion, and more. LMQL also provides decorators that allow to stream or pre-process data during generation. For more information, please refer to the [documentation](../../guide/language/decorators.md).
 
 
 ## Documentation Update
@@ -111,7 +113,7 @@ These features are marked as *experimental* and are not yet fully supported. We 
 
 ### LMQL Actions <span class="beta badge">Preview</span>
 
-[LMQL Actions](../actions) is the first version of LMQL's function calling layer. It allows you to expose arbitrary Python functions to the LLM reasoning loop and lets the model call them during generation. Function demonstration and the calling protocol can be both handled automatically by the LMQL runtime, allowing for simple use like this:
+*LMQL Actions* is the first version of LMQL's function calling layer. It allows you to expose arbitrary Python functions to the LLM reasoning loop and lets the model call them during generation. Function demonstration and the calling protocol can be both handled automatically by the LMQL runtime, allowing for simple use like this:
 
 ```{lmql}
 def wiki(q): ...

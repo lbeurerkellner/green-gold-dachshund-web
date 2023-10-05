@@ -2,7 +2,7 @@
 
 LMQL support various decoding algorithms, which are used to generate text from the token distribution of a language model. For this, decoding algorithm in use, can be specified right at the beginning of a query, e.g. using a decoder keyword like `argmax`. 
 
-All supported decoding algorithms are model-agnostic and can be used with any LMQL-supported inference backend. For more information on the supported inference backends, see the [Models](./models.rst) chapter.
+All supported decoding algorithms are model-agnostic and can be used with any LMQL-supported inference backend. For more information on the supported inference backends, see the [Models](../models/index.html) chapter.
 
 ## Setting The Decoding Algorithm
 
@@ -88,6 +88,12 @@ LMQL also includes a library for array-based decoding `dclib`, which can be used
 
 ## Other Decoding Parameters
 
-* `max_len: int` - The maximum length of the generated sequence. If not specified, the default value of `max_len` is `512`. Note if the maximum length is reached, the LMQL runtime will throw an error if the query has not yet come to a valid result, according to the provided `where` clause.
-
-* `chunksize: int` - The chunksize parameter used for `max_tokens` in OpenAI API requests or in speculative inference. If not specified, the default value of `chunksize` is `32`. See also the description of this parameter in the [Models](./models.rst#configuring-speculative-openai-api-use) chapter.
+|  |  |
+| --- | --- |
+| `max_len: int` | The maximum length of the generated sequence. If not specified, the default value of `max_len` is `2048`. Note if the maximum length is reached, the LMQL runtime will throw an error if the query has not yet come to a valid result, according to the provided `where` clause. |
+| `chunksize: int` | The chunksize parameter used for `max_tokens` in OpenAI API requests or in speculative inference with local models. If not specified, the default value of `chunksize` is `32`. See also the description of this parameter in the [Models](../models/openai.md#monitoring-openai-api-use) chapter. |
+| `verbose: bool` | Enables verbose console logging for individual LLM inference calls (local generation calls or OpenAI API request payloads). |
+| `cache: Union[bool,str]` | `True` or `False` to enable in-memory token caching. If not specified, the default value of `cache` is `True`, indicating in-memory caching is enabled. <br/><br/> Setting `cache` to a string value, specifies a local file to use for disk-based caching, enabling caching across multiple query executions and sessions. |
+| `openai_nonstop` | Experimental option for OpenAI-specific non-stop generation, which can further improve the effectiveness of caching in some scenarios. |
+| `chunk_timeout` | OpenAI-specific maximum time in seconds to wait for the next chunk of tokens to arrive. If exceeded, the current API request will be retried with an approriate backoff. <br/><br/> If not specified, the default value of `chunk_timeout` is `2.5`. Adjust this parameter, if you are seeing a high number of timeouts in the console output of the LMQL runtime. |
+|  |  |
