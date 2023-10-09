@@ -1,4 +1,4 @@
-# Getting Started
+# Stable Getting Started
 
 <div class="subtitle">Learn how to get started with LMQL and write your first program.</div>
 
