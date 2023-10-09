@@ -901,14 +901,4 @@
     }
 
     window.pd = pd;
-
-    function pdify() {
-        document.querySelectorAll("pre.promptdown").forEach(el => {
-            console.log(el)
-            pd(el);
-        });
-    }
-    // window.pdify = pdify;
-    // window.addEventListener("load", pdify);
-    // pdify();
 })();

@@ -1,5 +1,5 @@
 <script setup>
-import { data as examples } from './features/examples/examples.data.js'
+import { data as examples } from '../features/examples/examples.data.js'
 import LMSideBySide from './LMSideBySide.vue'
 import { ref } from 'vue'
 

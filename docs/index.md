@@ -4,11 +4,11 @@ title: LMQL is a programming language for LLM interaction.
 outline: false
 ---
 <script setup>
-import LMHero from './LMHero.vue'
-import LMFeature from './LMFeature.vue'
+import LMHero from './_components/LMHero.vue'
+import LMFeature from './_components/LMFeature.vue'
 import { data as features } from './features/features.data.js'
 import { data as examples } from './features/examples/examples.data.js'
-import LMExamples from './LMExamples.vue'
+import LMExamples from './_components/LMExamples.vue'
 </script>
 
 <div class="banner">LMQL 0.7 is now available. <a href="blog/">Read the announcement post</a> to learn more about this release.</div>

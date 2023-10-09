@@ -308,10 +308,6 @@ html.dark p strong {
   text-decoration: underline;
 }
 
-:is(.vp-external-link-icon, .vp-doc a[href*='://'], .vp-doc a[target='_blank']):not(.no-icon)::after {
-  display: none;
-}
-
 span.date {
   font-size: 0.8em;
   color: grey;

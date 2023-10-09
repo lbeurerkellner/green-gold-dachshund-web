@@ -31,7 +31,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Blog', link: '/blog/', activeMatch: '^/blog/' },
       { text: 'Research', link: '/research/index.html' },
-      { text: 'Docs', link: '/guide/', activeMatch: '^/guide/' },
+      { text: 'Docs', link: '/docs/', activeMatch: '^/docs/' },
       { text: '▶ Playground', link: 'https://lmql.ai/playground'},
     ],
     search: {
@@ -39,50 +39,41 @@ export default defineConfig({
     },
     logo: '/lmql.svg',
     sidebar: {
-      '/reference': [
-        { 
-          text: 'Reference',
-          collapsable: true,
-          collapsed: false,
-          base: '/reference',
-          items: sidebar("reference")
-        },
-      ],
-      '/guide': [
+      '/docs': [
         {
           text: '',
           collapsable: true,
           collapsed: false,
-          base: '/guide',
-          items: sidebar("guide")
+          base: '/docs',
+          items: sidebar("docs")
         },
         {
           text: 'Language',
           collapsable: true,
           collapsed: false,
-          base: '/guide/language',
-          items: sidebar("guide/language")
+          base: '/docs/language',
+          items: sidebar("docs/language")
         },
         {
           text: 'Model Support',
           collapsable: true,
           collapsed: false,
-          base: '/guide/models',
-          items: sidebar("guide/models")
+          base: '/docs/models',
+          items: sidebar("docs/models")
         },
         {
           text: 'Library',
           collapsable: true,
           collapsed: false,
-          base: '/guide/lib',
-          items: sidebar("guide/lib")
+          base: '/docs/lib',
+          items: sidebar("docs/lib")
         },
         {
           text: 'Development',
           collapsable: true,
           collapsed: false,
-          base: '/guide/development',
-          items: sidebar("guide/development")
+          base: '/docs/development',
+          items: sidebar("docs/development")
         }
       ]
     },
