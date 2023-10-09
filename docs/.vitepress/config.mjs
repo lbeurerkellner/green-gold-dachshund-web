@@ -3,6 +3,9 @@ import fs from 'fs'
 import path from 'path'
 import { highlight } from "./highlighter"
 
+const docs_dir = `docs/`
+const docs_path = "/" + docs_dir
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "LMQL",
@@ -31,52 +34,14 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Blog', link: '/blog/', activeMatch: '^/blog/' },
       { text: 'Research', link: '/research/index.html' },
-      { text: 'Docs', link: '/docs/', activeMatch: '^/docs/' },
-      { text: '▶ Playground', link: 'https://lmql.ai/playground'},
+      { text: 'Docs', link: docs_path, activeMatch: '^' + docs_path },
+      { text: '▶ Playground', link: '/playground/', target: '_blank' },
     ],
     search: {
       provider: 'local'
     },
     logo: '/lmql.svg',
-    sidebar: {
-      '/docs': [
-        {
-          text: '',
-          collapsable: true,
-          collapsed: false,
-          base: '/docs',
-          items: sidebar("docs")
-        },
-        {
-          text: 'Language',
-          collapsable: true,
-          collapsed: false,
-          base: '/docs/language',
-          items: sidebar("docs/language")
-        },
-        {
-          text: 'Model Support',
-          collapsable: true,
-          collapsed: false,
-          base: '/docs/models',
-          items: sidebar("docs/models")
-        },
-        {
-          text: 'Library',
-          collapsable: true,
-          collapsed: false,
-          base: '/docs/lib',
-          items: sidebar("docs/lib")
-        },
-        {
-          text: 'Development',
-          collapsable: true,
-          collapsed: false,
-          base: '/docs/development',
-          items: sidebar("docs/development")
-        }
-      ]
-    },
+    sidebar: createSidebars(),
     socialLinks: [
       { icon: 'github', link: 'https://github.com/eth-sri/lmql' },
       { icon: 'discord', link: 'https://discord.gg/5djae9gJVB' },
@@ -85,8 +50,65 @@ export default defineConfig({
   markdown: {
     defaultHighlightLang: 'lmql',
     highlight: highlight
-  }
+  },
+  mpa: true
 })
+
+function createSidebars() {
+  let sb = {}
+  const docsBar = (docs_dir, docs_path) => [
+    {
+      text: '',
+      collapsable: true,
+      collapsed: false,
+      base: docs_path,
+      items: sidebar(docs_dir)
+    },
+    {
+      text: 'Language',
+      collapsable: true,
+      collapsed: false,
+      base: docs_path + 'language',
+      items: sidebar(docs_dir + "language")
+    },
+    {
+      text: 'Model Support',
+      collapsable: true,
+      collapsed: false,
+      base: docs_path + 'models',
+      items: sidebar(docs_dir + "models")
+    },
+    {
+      text: 'Library',
+      collapsable: true,
+      collapsed: false,
+      base: docs_path + 'lib',
+      items: sidebar(docs_dir + "lib")
+    },
+    {
+      text: 'Development',
+      collapsable: true,
+      collapsed: false,
+      base: docs_path + 'development',
+      items: sidebar(docs_dir + "development")
+    },
+    {
+      text: '',
+      collapsable: false,
+      collapsed: false,
+      items: [
+        {
+          text: docs_dir.includes("latest") ? 'Switch to Stable' : 'Switch to Latest',
+          link: docs_dir.includes("latest") ? '/docs/' : '/docs/latest/',
+          path: docs_dir.includes("latest") ? '/docs/' : '/docs/latest/',
+        }
+      ]
+    },
+  ]
+  sb["docs/"] = docsBar("docs/", "/docs/")
+  sb["docs/latest/"] = docsBar("docs/latest/", "/docs/latest/")
+  return sb
+}
 
 function frontmatter(content) {
   // parse frontmatter

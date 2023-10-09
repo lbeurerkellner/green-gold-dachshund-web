@@ -616,3 +616,14 @@ img.inline-logo {
 figure img {
   border-radius: 4pt;
 }
+
+/* link to /docs/stable/ */
+nav a[href^="/docs/stable/"] {
+  border-radius: 4pt;
+  /* padding-left: 5pt; */
+  font-size: 8pt;
+}
+
+nav a[href^="/docs/stable/"] p {
+  /* color: white !important; */
+}

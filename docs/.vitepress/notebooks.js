@@ -53,7 +53,6 @@ function getArgs(lines) {
         let entry = line.slice(14).trim()
         if (entry.includes('=')) {
             let [key, value] = entry.split('=')
-            console.log([value])
             if (value == 'true') { 
                 value = true
             } else if (value == 'false') {
@@ -115,7 +114,6 @@ function renderCell(cell) {
                 let text = output_part.text.join("").trim()
                 let text_before = text
                 text = terminalCodesToHtml(text)
-                console.log("converted", [text, text_before])
 
                 if (output_part.name === "stdout" && args.show_stdout) {
                     output += "```output\n" + text + "\n```\n"
