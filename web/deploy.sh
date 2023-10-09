@@ -14,10 +14,13 @@ rm -rf ../web-deploy/*
 echo "🌎  Building website..."
 pushd ../docs
 
-# create docs/latest copy
+# create docs/latest copy (skip symlink)
+rm docs/latest # remove symlink
+# create copy of current 'latest' state
 cp -r docs docs-latest
 # checkout old state for docs/
 git checkout stable-docs docs
+rm docs/latest
 # move latest docs back in
 mv docs-latest docs/latest
 # build docs
@@ -29,10 +32,11 @@ npm run docs:build
 cp -r .vitepress/dist/* ../web-deploy/
 # copy static content
 cp -r lmql.svg ../web-deploy/
+# undo docs/ checkout
+rm -rf docs/latest
+git checkout HEAD docs
 popd
 
-# undo docs/ checkout
-git checkout docs
 
 echo "📦  Building playground..."
 # create playground destination
