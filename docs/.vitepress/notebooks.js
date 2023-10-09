@@ -28,6 +28,10 @@ function findAllNotebookFiles(directory) {
 
     function findNotebooks(dir) {
         const items = fs.readdirSync(dir)
+        const stat = fs.statSync(dir)
+        if (!stat.isSymbolicLink()) {
+            return
+        }
         for (const item of items) {
             const itemPath = path.join(dir, item)
             const stat = fs.statSync(itemPath)

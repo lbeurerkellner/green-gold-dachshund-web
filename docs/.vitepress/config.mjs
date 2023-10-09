@@ -50,8 +50,7 @@ export default defineConfig({
   markdown: {
     defaultHighlightLang: 'lmql',
     highlight: highlight
-  },
-  mpa: true
+  }
 })
 
 function createSidebars() {
