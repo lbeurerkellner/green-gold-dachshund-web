@@ -2,6 +2,12 @@ set -e
 
 REPO=lbeurerkellner/green-gold-dachshund-web
 
+# make sure there are no uncommitted changes
+if [ -n "$(git status --porcelain)" ]; then
+    echo "🚨  There are uncommitted changes. Please commit or stash them before deploying."
+    exit 1
+fi
+
 mkdir -p ../web-deploy
 rm -rf ../web-deploy/*
 
